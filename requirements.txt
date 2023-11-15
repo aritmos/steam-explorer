@@ -1,0 +1,4 @@
+requests
+logging
+tqdm
+argparse
