@@ -1,12 +1,18 @@
 import json
+import os
 
 from argparse import ArgumentParser
 import requests
 from requests.exceptions import JSONDecodeError
 
+
+from ...config import Config
+
 # -- MAIN SCRIPT --
 
-APPLIST_JSON = "data/raw/applist/applist.json"
+config = Config()
+
+APPLIST_JSON = os.path.join(config.data_dir, "raw", "applist", "applist.json")
 API_URL = "https://api.steampowered.com/ISteamApps/GetAppList/v2/"
 
 desc = f"""

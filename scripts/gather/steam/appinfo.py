@@ -1,11 +1,14 @@
-import json
 import bisect
+import json
+import os
 import time
 
-import logging
-from tqdm import tqdm
-import requests
+from ...config import Config
+
 from argparse import ArgumentParser, RawDescriptionHelpFormatter, Namespace
+import logging
+import requests
+from tqdm import tqdm
 
 
 class AppIdError(Exception):
@@ -48,23 +51,15 @@ class AppInfoRaw:
         self.appid = appid
         self.data = appinfo[str(appid)]["data"]
 
-    def save(self, filepath: str | None = None):
+    def save(self):
         """
-        Saves the application info as JSON in the given file location.
-        Defaults to `data/raw/appinfo/<appid>.json` if not specified (or passed an empty string).
+        Saves the application info as JSON to file.
+        Writes to `<DATA_DIR>/raw/appinfo/<appid>.json`.
         """
 
-        filepath = filepath or f"data/raw/appinfo/{self.appid:07}.json"
+        filepath = os.path.join(APPINFO_DIR, f"{self.appid:07}.json")
         with open(filepath, "w", encoding="UTF-8") as file:
             json.dump(self.data, file, indent=4)
-
-
-def save_appinfo_list(appids: list[int]):
-    """
-    Iterates through the list creating `AppInfoRaw`s and saving them to the
-    default file location. Handles any exceptions in constructing `AppInfoRaw`s
-    by skipping to the next `appid`.
-    """
 
 
 def save_appinfo_batched(
@@ -118,9 +113,9 @@ def save_appinfo_batched(
 # Main program
 def parse_args() -> Namespace:
     desc = """Requests and stores the application info of the specified AppIDs.
-    Uses `data/raw/applist/applist.csv` to get an ordered list of AppIDs.
-    Begins at the AppID given by the specified mode and processes `batch_size` AppIDs.
-    Aborts if a request returns an HTTP 429 (Too many requests)"""
+Uses `<DATA_DIR>/raw/applist/applist.dat` to get an ordered list of AppIDs.
+Begins at the AppID given by the specified mode and processes `batch_size` AppIDs.
+Aborts if a request returns an HTTP 429 (Too many requests)"""
 
     parser = ArgumentParser(description=desc, formatter_class=RawDescriptionHelpFormatter)
     parser.add_argument("-n", "--batch-size", type=int, required=True,
@@ -158,9 +153,12 @@ def set_start_appid(args: Namespace) -> int:
 # -- MAIN SCRIPT --
 
 
-APPLIST_FILE = "data/raw/applist/applist.txt"
-STATE_FILE = ".state/appinfo.json"
-LOG_FILE = ".logs/appinfo-gather.txt"
+config = Config()
+APPINFO_DIR = os.path.join(config.data_dir, "raw", "appinfo")
+APPLIST_FILE = os.path.join(config.data_dir, "raw", "applist", "applist.dat")
+STATE_FILE = os.path.join(config.state_dir, "appinfo.json")
+LOG_FILE = os.path.join(config.logs_dir, "appinfo-gather.log")
+
 
 args = parse_args()
 start_appid = set_start_appid(args)

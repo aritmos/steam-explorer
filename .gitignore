@@ -4,6 +4,7 @@ data/
 .venv/
 .logs/
 .state/
+scripts/config.json
 pyrightconfig.json
 
 # Byte-compiled / optimized / DLL files
