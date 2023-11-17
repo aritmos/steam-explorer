@@ -21,7 +21,7 @@ The scripts make use of a configuration file that must be initialised upon cloni
 > py -m scripts.config
 ```
 
-This configuration file specifies where the gathered data is to be saved or read from. It also specifies the directories for logging and script state. It is backed by the `scripts/config.json` file, which can be freely modified by the user, by default it has the values:
+This configuration file specifies where the gathered data is to be saved or read from. It also specifies the directories for logging and script state. It is backed by the `scripts/config.json` file, which can be freely modified by the user. By default it has the values:
 ```json
 {
     "root_dir": "<project-root>",
