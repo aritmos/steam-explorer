@@ -95,7 +95,7 @@ def save_appinfo_batched(
             if e.status_code == 429:
                 message = f"{appid:07} HTTPError {e.status_code} (Too Many Requests) ABORTING"
                 logging.critical(message)
-                print("AppID ", message)
+                print(f"AppID {message}")
                 break
             else:
                 logging.error(f"{appid:07} HTTPError {e.status_code}")
@@ -120,8 +120,8 @@ Aborts if a request returns an HTTP 429 (Too many requests)"""
     parser = ArgumentParser(description=desc, formatter_class=RawDescriptionHelpFormatter)
     parser.add_argument("-n", "--batch-size", type=int, required=True,
                         help="[int] batch size (number of appids to process)")
-    parser.add_argument("-s", "--sleep", type=float, default="0.1",
-                        help="[float] seconds to sleep in between requests (default: 0.1)")
+    parser.add_argument("-s", "--sleep", type=float, default="1.5",
+                        help="[float] seconds to sleep in between requests (default: 1.5)")
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-a", "--automatic", action="store_true",
                        help="Automatic start-appid lookup using a state file")
