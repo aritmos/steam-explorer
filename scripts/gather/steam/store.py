@@ -203,6 +203,20 @@ Aborts if a request returns an HTTP 429 (Too many requests)"""
     return parser.parse_args()
 
 
+def parse_api(api: str) -> StoreAPI:
+    """
+    Parses string version of API into enum.
+    Raises ValueError if no such API exists.
+    """
+    match api:
+        case "info":
+            return StoreAPI.Info
+        case "reviews":
+            return StoreAPI.Reviews
+        case _:
+            raise ValueError
+
+
 def set_start_appid(args: Namespace) -> int:
     """
     Sets the start AppID using the passed in arguments.
@@ -235,8 +249,9 @@ args = parse_args()
 start_appid = set_start_appid(args)
 
 print(f"\nGathering AppInfo for {
-    args.batch_size} applications, starting at appid = {start_appid}:\n")
+    args.number} applications, starting at appid = {start_appid}:\n")
 
 APPLIST_FILE = os.path.join(config.data_dir, "raw", "applist", "applist.dat")
-appids = StoreResponse.get_appids(APPLIST_FILE, start_appid, args.count)
-StoreResponse.create_and_store_multi(args.api, appids, args.sleep)
+appids = StoreResponse.get_appids(APPLIST_FILE, start_appid, args.number)
+api = parse_api(args.api)
+StoreResponse.create_and_store_multi(api, appids, args.sleep)
