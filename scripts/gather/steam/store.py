@@ -185,12 +185,20 @@ class StoreResponse:
 
 
 def parse_args() -> Namespace:
-    desc = """Calls the selected API and stores the relevant object block of the specified AppIDs to file.
+    desc = """
+Calls the selected API and stores the relevant object block of the specified AppIDs to file.
+Automatically checks saved state from previous calls in order to select starting AppID.
 Uses `<DATA_DIR>/raw/applist/applist.dat` to get an ordered list of AppIDs.
-Begins at the AppID given by the specified mode and processes `-n/--number` AppIDs using the list.
-Aborts if a request returns an HTTP 429 (Too many requests)"""
-
-    parser = ArgumentParser(description=desc, formatter_class=RawDescriptionHelpFormatter)
+Using the list, starting at the given AppID, processes `-n/--number` AppIDs.
+Continues on unsuccessful API calls (no store page exists); aborts on any error.
+    """
+    epilog = "IMPORTANT: Setting SLEEP < 1.5 with NUMBER > 200 requests will trigger an HTTP 429"
+    parser = ArgumentParser(
+        prog="scripts.gather.steam.store",
+        description=desc,
+        formatter_class=RawDescriptionHelpFormatter,
+        epilog=epilog
+    )
     parser.add_argument("-a", "--api", choices=["info", "reviews"],
                         required=True, help="[enum] selects which API to call")
     parser.add_argument("-n", "--number", type=int, required=True,
