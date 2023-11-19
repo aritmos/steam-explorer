@@ -35,21 +35,26 @@ This configuration file specifies where the gathered data is to be saved or read
 
 All the scripts are modules that make use of this configuration file, writing to files in the logs directory, using states stored in the states directory and manipulating data in the data directory. **Scripts can only be invoked from the project root**. Their functionality and required arguments can be accessed by passing in `-h` or `--help`:
 ```
-> py -m scripts.gather.steam.appinfo -h
-usage: appinfo.py [-h] -n BATCH_SIZE [-s SLEEP] [-a | -m APPID]
+> py -m scripts.gather.steam.store -h
+usage: scripts.gather.steam.store [-h] -a {info,reviews} -n NUMBER [-s SLEEP] [-m MANUAL]
 
-Requests and stores the application info of the specified AppIDs.
+Calls the selected API and stores the relevant object block of the specified AppIDs to file.
+Automatically checks saved state from previous calls in order to select starting AppID.
 Uses `<DATA_DIR>/raw/applist/applist.dat` to get an ordered list of AppIDs.
-Begins at the AppID given by the specified mode and processes `batch_size` AppIDs.
-Aborts if a request returns an HTTP 429 (Too many requests)
+Using the list, starting at the given AppID, processes `-n/--number` AppIDs.
+Continues on unsuccessful API calls (no store page exists); aborts on any error.
+
 
 options:
   -h, --help            show this help message and exit
-  -n BATCH_SIZE, --batch-size BATCH_SIZE
-                        [int] batch size (number of appids to process)
+  -a {info,reviews}, --api {info,reviews}
+                        [enum] selects which API to call
+  -n NUMBER, --number NUMBER
+                        [int] number of appids to process
   -s SLEEP, --sleep SLEEP
-                        [float] seconds to sleep in between requests (default: 0.1)
-  -a, --automatic       Automatic start-appid lookup using a state file
-  -m APPID, --manual APPID
-                        [int] start-appid
+                        [float] seconds to sleep in between requests (default: 1.5)
+  -m MANUAL, --manual MANUAL
+                        [int] manually select start appid
+
+IMPORTANT: Setting SLEEP < 1.5 with NUMBER > 200 requests will trigger an HTTP 429
 ```
