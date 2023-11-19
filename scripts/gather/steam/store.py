@@ -32,7 +32,7 @@ class StoreAPI(Enum):
     Info = None
     Reviews = None
 
-    def __repr__(self):
+    def __str__(self):
         match self:
             case StoreAPI.Info:
                 return "info"
