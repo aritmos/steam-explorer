@@ -157,23 +157,23 @@ class StoreResponse:
 
         last_successful_appid = 0  # sentinel value (no application with appid=0 exists)
         for appid in tqdm(appids):
+            time.sleep(timeout_sec)
             try:
                 StoreResponse(api, appid).save()
 
                 logging.info(f"{appid:07} OK")
                 last_successful_appid = appid
-
-                time.sleep(timeout_sec)
-            except RequestError as e:
-                message = f"{appid: 07} HTTPError {e.status_code}"
-                logging.critical(message)
-                # HTTP 429: Too many requests. Inform the user and abort.
-                if e.status_code == 429:
-                    print(f"AppID {message}")
-                    break
-            except Exception as e:
+            except AppIdError as e:
                 logging.warning(f"{appid:07} {e.__class__.__name__}")
                 continue
+            except Exception as e:
+                if isinstance(e, RequestError):
+                    message = f"{appid: 07} HTTPError {e.status_code}"
+                else:
+                    message = f"{appid: 07} Error: {e}"
+                print(message + ". Aborting.")
+                logging.critical(message)
+                quit()
 
         # save the last successful appid to file
         if last_successful_appid != 0:
