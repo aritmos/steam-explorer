@@ -2,3 +2,5 @@ requests
 logging
 tqdm
 argparse
+jupyter
+beautifulsoup4
