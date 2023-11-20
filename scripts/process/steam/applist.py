@@ -21,6 +21,7 @@ parser.parse_args()
 with open(APPLIST_JSON, "r", encoding="UTF-8") as file:
     applist = json.load(file)["applist"]["apps"]
     appids = [app["appid"] for app in applist]
+    # appids = list(set(appids))  # remove duplicates
     appids.sort()
 
 with open(APPLIST_FILE, "w") as file:
