@@ -32,7 +32,7 @@ class StoreAPI(Enum):
     Info = auto()
     Reviews = auto()
 
-    def __str__(self):
+    def __str__(self) -> str:
         match self:
             case StoreAPI.Info:
                 return "info"
@@ -155,7 +155,8 @@ class StoreResponse:
         log_filepath = os.path.join(config.logs_dir, f"app{api}-gather.log")
         logging.basicConfig(filename=log_filepath, encoding="UTF-8", level=logging.INFO)
 
-        last_successful_appid = 0  # sentinel value (no application with appid=0 exists)
+        # sentinel value (no application with appid=0 exists)
+        last_successful_appid = 0
         for appid in tqdm(appids):
             time.sleep(timeout_sec)
             try:
@@ -214,7 +215,6 @@ Continues on unsuccessful API calls (no store page exists); aborts on any error.
 def parse_api(api: str) -> StoreAPI:
     """
     Parses string version of API into enum.
-    Raises ValueError if no such API exists.
     """
     match api:
         case "info":
@@ -222,6 +222,7 @@ def parse_api(api: str) -> StoreAPI:
         case "reviews":
             return StoreAPI.Reviews
         case _:
+            # Should be unreachable given the args checker
             raise ValueError
 
 
@@ -239,10 +240,11 @@ def set_start_appid(args: Namespace) -> int:
     state_file = os.path.join(config.state_dir, f"app{args.api}.json")
     try:
         with open(state_file, "r", encoding="UTF-8") as file:
+
             return int(json.load(file)["greatest_processed_appid"])
     except FileNotFoundError:
         with open(state_file, "w", encoding="UTF-8") as file:
-            # smallest appid is 5, so this sets the automatic mode to begin at the start
+            # smallest real appid is 5
             json.dump({"greatest_processed_appid": 1}, file)
             return set_start_appid(args)
     except Exception as e:
