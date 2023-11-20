@@ -173,7 +173,7 @@ class StoreResponse:
                     message = f"{appid: 07} Error: {e}"
                 print(message + ". Aborting.")
                 logging.critical(message)
-                quit()
+                break
 
         # save the last successful appid to file
         if last_successful_appid != 0:
