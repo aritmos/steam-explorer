@@ -2,7 +2,7 @@ import bisect
 import json
 import os
 import time
-from enum import Enum
+from enum import Enum, auto
 
 from ...config import Config
 
@@ -29,10 +29,10 @@ class RequestError(Exception):
 
 
 class StoreAPI(Enum):
-    Info = None
-    Reviews = None
+    Info = auto()
+    Reviews = auto()
 
-    def __str__(self):
+    def __str__(self) -> str:
         match self:
             case StoreAPI.Info:
                 return "info"
@@ -155,7 +155,8 @@ class StoreResponse:
         log_filepath = os.path.join(config.logs_dir, f"app{api}-gather.log")
         logging.basicConfig(filename=log_filepath, encoding="UTF-8", level=logging.INFO)
 
-        last_successful_appid = 0  # sentinel value (no application with appid=0 exists)
+        # sentinel value (no application with appid=0 exists)
+        last_successful_appid = 0
         for appid in tqdm(appids):
             time.sleep(timeout_sec)
             try:
@@ -214,7 +215,6 @@ Continues on unsuccessful API calls (no store page exists); aborts on any error.
 def parse_api(api: str) -> StoreAPI:
     """
     Parses string version of API into enum.
-    Raises ValueError if no such API exists.
     """
     match api:
         case "info":
@@ -222,6 +222,7 @@ def parse_api(api: str) -> StoreAPI:
         case "reviews":
             return StoreAPI.Reviews
         case _:
+            # Should be unreachable given the args checker
             raise ValueError
 
 
@@ -239,10 +240,11 @@ def set_start_appid(args: Namespace) -> int:
     state_file = os.path.join(config.state_dir, f"app{args.api}.json")
     try:
         with open(state_file, "r", encoding="UTF-8") as file:
+
             return int(json.load(file)["greatest_processed_appid"])
     except FileNotFoundError:
         with open(state_file, "w", encoding="UTF-8") as file:
-            # smallest appid is 5, so this sets the automatic mode to begin at the start
+            # smallest real appid is 5
             json.dump({"greatest_processed_appid": 1}, file)
             return set_start_appid(args)
     except Exception as e:
@@ -252,14 +254,16 @@ def set_start_appid(args: Namespace) -> int:
 # -- MAIN SCRIPT --
 
 
-config = Config()
-args = parse_args()
-start_appid = set_start_appid(args)
+if __name__ == "__main__":
+    config = Config()
+    args = parse_args()
+    start_appid = set_start_appid(args)
 
-print(f"\nGathering AppInfo for {
-    args.number} applications, starting at appid = {start_appid}:\n")
+    APPLIST_FILE = os.path.join(
+        config.data_dir, "raw", "applist", "applist.dat")
+    appids = StoreResponse.get_appids(APPLIST_FILE, start_appid, args.number)
+    api = parse_api(args.api)
 
-APPLIST_FILE = os.path.join(config.data_dir, "raw", "applist", "applist.dat")
-appids = StoreResponse.get_appids(APPLIST_FILE, start_appid, args.number)
-api = parse_api(args.api)
-StoreResponse.create_and_store_multi(api, appids, args.sleep)
+    print(f"\nGathering app-{api} for {
+        args.number} applications, starting at appid = {start_appid}:\n")
+    StoreResponse.create_and_store_multi(api, appids, args.sleep)
