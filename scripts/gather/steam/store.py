@@ -48,7 +48,6 @@ class StoreResponse:
     - `RequestError` if the request did not have a status code of 200.
     - `AppIdError` if the given appid did not return any information.
     """
-    config = Config()
 
     def call_api(self):
         """
@@ -141,7 +140,7 @@ class StoreResponse:
             return appids[start_idx: start_idx + count]
 
     @staticmethod
-    def create_and_store_multi(
+    def process_multi(
         api: StoreAPI,
         appids: list[int],
         timeout_sec: float
@@ -206,8 +205,7 @@ Continues on unsuccessful API calls (no store page exists); aborts on any error.
                         help="[int] number of appids to process")
     parser.add_argument("-s", "--sleep", type=float, default="1.5",
                         help="[float] seconds to sleep in between requests (default: 1.5)")
-    group = parser.add_mutually_exclusive_group()
-    group.add_argument("-m", "--manual", type=int, help="[int] manually select start appid")
+    parser.add_argument("-m", "--manual", type=int, help="[int] manually select start appid")
 
     return parser.parse_args()
 
@@ -266,4 +264,4 @@ if __name__ == "__main__":
 
     print(f"\nGathering app-{api} for {
         args.number} applications, starting at appid = {start_appid}:\n")
-    StoreResponse.create_and_store_multi(api, appids, args.sleep)
+    StoreResponse.process_multi(api, appids, args.sleep)
