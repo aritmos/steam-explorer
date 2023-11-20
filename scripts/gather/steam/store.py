@@ -2,7 +2,7 @@ import bisect
 import json
 import os
 import time
-from enum import Enum
+from enum import Enum, auto
 
 from ...config import Config
 
@@ -29,8 +29,8 @@ class RequestError(Exception):
 
 
 class StoreAPI(Enum):
-    Info = None
-    Reviews = None
+    Info = auto()
+    Reviews = auto()
 
     def __str__(self):
         match self:
