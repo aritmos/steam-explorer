@@ -7,7 +7,7 @@ from ..config import Config
 
 import requests
 from bs4 import BeautifulSoup
-from argparse import ArgumentParser, RawDescriptionHelpFormatter, Namespace
+from argparse import ArgumentParser, Namespace
 from tqdm import tqdm
 import logging
 
