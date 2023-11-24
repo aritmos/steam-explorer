@@ -1,34 +1,35 @@
-import requests
-from bs4 import BeautifulSoup, Tag
-from ...config import Config
-import os
-from argparse import ArgumentParser
-import logging
-from tqdm import tqdm
-import time
-
-
 if __name__ != "__main__":
     raise ImportError("This file can only be ran directly as a script")
 
+# === IMPORTS ===
+
+
+import os
+import time
+
+from ...config import Config
+from ..errors import RequestError, HTMLError
+
+from argparse import ArgumentParser
+import logging
+from tqdm import tqdm
+import requests
+from bs4 import BeautifulSoup, Tag
+
+
+# === SCRAPERS ===
+
+
 config = Config()
 
-
-class HTMLError(Exception):
-    pass
-
-
-class RequestError(Exception):
-    def __init__(self, status_code: int):
-        self.status_code = status_code
-
-
-type ScraperError = HTMLError | RequestError
+# kept in global scope so `makedirs` only executes once
+SAVE_DIR = os.path.join(config.data_dir, "raw", "itad", "pricehistory")
+os.makedirs(SAVE_DIR, exist_ok=True)
 
 
 class Scraper:
     """
-    Handler for ITAD price history scraping
+    Handler for isthereanydeal.com price history scraping
     """
 
     def __init__(self, plain: str, id: int):
@@ -73,16 +74,17 @@ class Scraper:
             self.data.append(f"{datetime},{full_price},{curr_price}\n")
 
     def save(self):
-        filepath = os.path.join(config.data_dir, "raw", "itad", "pricehistory", f"{self.id:07}.csv")
+        filepath = os.path.join(SAVE_DIR, f"{self.id:07}.csv")
         with open(filepath, "w") as file:
             file.writelines(self.data)
 
 
 class ScraperController:
-    STATE_FILEPATH = os.path.join(config.state_dir, "itad.dat")
-    LOGGING_FILEPATH = os.path.join(config.logs_dir, "itad.log")
-
-    LIST_FILEPATH = os.path.join(config.data_dir, "raw", "itad", "index.csv")
+    def __init__(self):
+        self.parse_args()
+        self.set_files()
+        self.load()
+        self.run()
 
     def parse_args(self):
         desc = """
@@ -96,9 +98,23 @@ class ScraperController:
 
         self.args = parser.parse_args()
 
-    def __init__(self):
-        self.parse_args()
+    def set_files(self):
+        """
+        Sets the input, state, and logging files (as well as logging configuration)
+        """
+        self.STATE_FILEPATH = os.path.join(config.state_dir, "itad.dat")
+        os.makedirs(os.path.dirname(self.STATE_FILEPATH), exist_ok=True)
 
+        self.LOGGING_FILEPATH = os.path.join(config.logs_dir, "itad.log")
+        os.makedirs(os.path.dirname(self.LOGGING_FILEPATH), exist_ok=True)
+        config.log(filepath=self.LOGGING_FILEPATH)
+
+        self.LIST_FILEPATH = os.path.join(config.data_dir, "raw", "itad", "index.csv")
+
+    def load(self):
+        """
+        Loads the state file and applist
+        """
         with open(self.STATE_FILEPATH, "r") as file:
             self.done = set([line.strip() for line in file.readlines()])
 
@@ -111,8 +127,6 @@ class ScraperController:
 
                 if kind not in ["bundle", "sub"] and plain not in self.done:
                     self.applist.append((plain.strip(), int(id)))
-
-        logging.basicConfig(filename=self.LOGGING_FILEPATH, encoding="UTF-8", level=logging.INFO)
 
     def run(self):
         with open(self.STATE_FILEPATH, "a") as file:
@@ -146,4 +160,4 @@ class ScraperController:
                 file.write(plain + "\n")
 
 
-ScraperController().run()
+ScraperController()
