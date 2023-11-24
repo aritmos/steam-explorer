@@ -102,10 +102,10 @@ class ScraperController:
         """
         Sets the input, state, and logging files (as well as logging configuration)
         """
-        self.STATE_FILEPATH = os.path.join(config.state_dir, "itad.dat")
+        self.STATE_FILEPATH = os.path.join(config.state_dir, "gather", "itad.dat")
         os.makedirs(os.path.dirname(self.STATE_FILEPATH), exist_ok=True)
 
-        self.LOGGING_FILEPATH = os.path.join(config.logs_dir, "itad.log")
+        self.LOGGING_FILEPATH = os.path.join(config.logs_dir, "gather", "itad.log")
         os.makedirs(os.path.dirname(self.LOGGING_FILEPATH), exist_ok=True)
         config.log(filepath=self.LOGGING_FILEPATH)
 

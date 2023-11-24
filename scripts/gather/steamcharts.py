@@ -126,7 +126,7 @@ class ScraperController:
         self.STATE_FILEPATH = os.path.join(config.state_dir, "gather", "steamcharts.json")
         os.makedirs(os.path.dirname(self.STATE_FILEPATH), exist_ok=True)
 
-        self.LOGS_FILEPATH = os.path.join(config.logs_dir, "steamcharts.log")
+        self.LOGS_FILEPATH = os.path.join(config.logs_dir, "gather", "steamcharts.log")
         os.makedirs(os.path.dirname(self.LOGS_FILEPATH), exist_ok=True)
         config.log(filepath=self.LOGS_FILEPATH)
 
