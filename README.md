@@ -51,7 +51,7 @@ Initialise the configuration file used by the scripts. This sets the `data` dire
 The configuration is backed by the `scripts/config.json` configuration file, which may be freely modified by the user. By default it is initialised with the values:
 ```json
 {
-    "root_dir": "/home/aritmos/dev/github/steam-insights",
+    "root_dir": "<project-root>",
     "prefix_root": true,
     "dirs": {
         "data": "data",
@@ -66,7 +66,12 @@ The configuration is backed by the `scripts/config.json` configuration file, whi
 - If the `prefix_root` is set to `true`, then the `data_dir`, `logs_dir`, and `state_dir` paths are taken to be relative to the `root_dir` directory. If `prefix_root` is set to `false` then the directories are taken to be absolute paths, and `root_dir` is not used. This allows for the directories to be stored in different locations if wanted.
 - The `logging->format` field specifies the logs formatting, see [`logging` docs](https://docs.python.org/3/library/logging.html).
 
-All the scripts are python modules (so that they can) make use of this configuration file and hence **require passing the `-m` flag to the python interpreter**. The scripts write to files in the logs directory, using states stored in the states directory and manipulate data in the data directory. **Scripts can only be invoked from the project root**. All scripts make use of the `argparse` library to document functionality and parse arguments:
+All the scripts are python modules (so that they can) make use of this configuration file and hence **require passing the `-m` flag to the python interpreter**. 
+Due to the large nature of the datasets and a non-server setup the scripts have been created to gather the data in batches. The process is fully automated by caching the script's state (files in the state directory) upon completion, with the user simply specifying how many requests to attempt at a time in these cases. In the case of an unexpected panic/exit (such as a `KeyboardInterrupt`) the scripts state will need to be updated using the logs file (as these files get updated upon the processing of every request).
+
+The general data collection process is slow, limited by Steam's API limiting at 200 requests per 5 minutes. For websites with no terms of use page, scripts normally implement a default sleep time of `3.0` seconds in the main request loop, whenever possible I have contacted the site owners regarding the extended use of their internal APIs. Overall this amounts to around 100-300 hours of data collection depending on how parallelised the scripts run.  
+
+For now **scripts can only be invoked from the project root**. All scripts make use of the `argparse` library to parse arguments, these aid in exposing general documentation:
 ```
 > py -m scripts.gather.steam.store -h
 usage: scripts.gather.steam.store [-h] -a {info,reviews} -n NUMBER [-s SLEEP] [-m MANUAL]
@@ -91,6 +96,8 @@ options:
 
 IMPORTANT: Setting SLEEP < 1.5 with NUMBER > 200 requests will trigger an HTTP 429
 ```
+
+TODO: Data/script flowchart
 
 ## 💻 Storing
 
