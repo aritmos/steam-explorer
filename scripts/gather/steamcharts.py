@@ -115,12 +115,12 @@ class ScraperController:
         self.set_files()
         self.parse_args()
 
-        if self.args.update or self.args.only_update:
+        if self.args.update:
             self.update_game_applist()
-        if not self.args.only_update:
-            self.set_start_appid()
-            self.load()
-            self.run()
+
+        self.set_start_appid()
+        self.load()
+        self.run()
 
     def set_files(self):
         self.STATE_FILEPATH = os.path.join(config.state_dir, "gather", "steamcharts.json")
@@ -139,18 +139,16 @@ class ScraperController:
         desc = f"""
     Extract playercount data from steamcharts site via scraping.
     Uses `{self.APPLIST_FILEPATH}` for the game appid index.
-    This file is not automatically created on the first run and requires the explicit use of `-u/-U`.
+    This file is not automatically created on the first run and \
+    requires the explicit use of the `-u` flag.
         """
         parser = ArgumentParser(
             prog="scripts.gather.steamcharts",
             description=desc,
             formatter_class=RawDescriptionHelpFormatter
         )
-        group = parser.add_mutually_exclusive_group()
-        group.add_argument("-u", "--update", action="store_true",
-                           help="Update the game appid list")
-        group.add_argument("-U", "--only-update", action="store_true",
-                           help="Only update the game appid list")
+        parser.add_argument("-u", "--update", action="store_true",
+                            help="Update the game appid list")
         parser.add_argument("-n", "--number", type=int, required=True,
                             help="[int] number of appids to process")
         parser.add_argument("-s", "--sleep", type=float, default="3.0",
@@ -237,7 +235,7 @@ class ScraperController:
             except Exception as e:
                 if isinstance(e, RequestError):
                     message = f"{appid: 07} HTTPError {e.status_code}"
-                    if e.status_code == 500:  # only allowed error
+                    if e.status_code in [404, 500]:  # only allowed error
                         logging.warning(message)
                     else:
                         logging.critical(message)

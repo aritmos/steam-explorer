@@ -17,6 +17,10 @@ class Config:
             quit()
 
     def __getattr__(self, name) -> str:
+        """
+        Artificial attribute getters for directory paths.
+        Exposes `.data_dir`, ".logs_dir", and ".state_dir".
+        """
         # absolute/relative filepath logic
         root = self.config["root_dir"]
         prefix_root = self.config["prefix_root"]
@@ -27,13 +31,16 @@ class Config:
 
         raise AttributeError
 
-    @staticmethod
-    def log(filepath: str):
+    def log(self, filepath: str):
+        """
+        Sets local logger configuration; to be called within scripts.
+        `filepath` is relative to the `self.logs_dir` directory.
+        """
         logging.basicConfig(
             filename=filepath,
             encoding="UTF-8",
             style="{",
-            format="{levelname:8} {message}",
+            format=self.config["logging"]["format"],
             level=logging.INFO
         )
 
@@ -43,10 +50,11 @@ if __name__ == "__main__":
     SCRIPTS_DIR = os.path.dirname(os.path.abspath(__file__))
     CONFIG_FILEPATH = os.path.join(SCRIPTS_DIR, "config.json")
 
-    print("Checking Config:")
+    print("Checking Config: ", end="")
     if os.path.exists(CONFIG_FILEPATH):
         print("Config file found.")
     else:
+        print("No config file found.")
         print("Creating default config file `scripts/config.json`. "
               "See documentation for customising config options.")
 
@@ -59,10 +67,7 @@ if __name__ == "__main__":
                 "state": ".state",
             },
             "logging": {
-                "version": 1,
-                "formatters": {
-                    "format": "%(message)s"
-                }
+                "format": "{levelname:8} {message}"
             }
         }
 
