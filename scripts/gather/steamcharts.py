@@ -11,6 +11,7 @@ import time
 
 from ..config import Config
 from .errors import RequestError
+from ..process.steam import gamelist
 
 import requests
 from bs4 import BeautifulSoup
@@ -116,7 +117,7 @@ class ScraperController:
         self.parse_args()
 
         if self.args.update:
-            self.update_game_applist()
+            gamelist.update()
 
         self.set_start_appid()
         self.load()
@@ -186,33 +187,6 @@ class ScraperController:
             self.appids = appids[start_idx:]
         else:
             self.appids = appids[start_idx:][:self.args.number]
-
-    def update_game_applist(self):
-        """
-        Updates the list of games in `<DATA_DIR>/raw/applist/applist-games.dat`
-        by going through gathered files in `<DATA_DIR>/raw/appinfo` and checking
-        the "type" field.
-        """
-
-        APPINFO_DIR = os.path.join(config.data_dir, "raw", "appinfo")
-        APPINFO_FILENAME_LIST = os.listdir(APPINFO_DIR)
-        APPINFO_FILENAME_LIST.sort()
-
-        game_appids = []
-
-        print("Iterating through existing appinfo files to look for game appids:")
-        for appinfo_filename in tqdm(APPINFO_FILENAME_LIST):
-            appinfo_filepath = os.path.join(APPINFO_DIR, appinfo_filename)
-            with open(appinfo_filepath, "r") as file:
-                appinfo = json.load(file)
-                if appinfo["type"] == "game":
-                    appid = appinfo["steam_appid"]
-                    game_appids.append(str(appid))
-
-        with open(self.APPLIST_FILEPATH, "w") as file:
-            print("Storing game appids into file:")
-            for appid in tqdm(game_appids):
-                file.write(str(appid) + "\n")
 
     def run(self):
         """
