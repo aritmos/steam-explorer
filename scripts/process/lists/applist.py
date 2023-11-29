@@ -10,7 +10,7 @@ config = Config()
 
 
 APPLIST_JSON = os.path.join(config.data_dir, "raw", "applist", "applist.json")
-APPLIST_FILE = os.path.join(config.data_dir, "raw", "applist", "applist.dat")
+APPLIST_FILE = os.path.join(config.data_dir, "processed", "indexes", "appids.dat")
 
 desc = f"""
 Parses `{APPLIST_JSON}` into `{APPLIST_FILE}`, keeping only the AppIDs.
