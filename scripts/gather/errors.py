@@ -20,11 +20,15 @@ class HTMLError(Exception):
     Erroneous returns of bs4 methods
     """
 
-    def __str__(self):
-        return "HTMLError"
+    def __init__(self, message: str = ""):
+        self.message = message
 
-    def __repr__(self):
-        return "HTMLError"
+    def __str__(self):
+        return self.message
+
+    def __repr__(self) -> str:
+        name = self.__class__.__name__
+        return f"{name}: {self.message}" if self.message else name
 
 
 class ResponseFailure(Exception):
