@@ -232,7 +232,7 @@ class ScraperController:
         for appid in tqdm(self.appids):
             time.sleep(self.args.sleep)
             try:
-                Scraper(api, appid).save()
+                Scraper(api, appid)
 
                 logging.info(f"{appid:07} OK")
                 last_successful_appid = appid
