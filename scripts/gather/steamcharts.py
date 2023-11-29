@@ -11,7 +11,7 @@ import time
 
 from ..config import Config
 from .errors import RequestError
-from ..process.steam import gamelist
+from ..process.lists import gamelist
 
 import requests
 from bs4 import BeautifulSoup
