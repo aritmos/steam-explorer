@@ -131,7 +131,8 @@ class ScraperController:
         os.makedirs(os.path.dirname(self.LOGS_FILEPATH), exist_ok=True)
         config.log(filepath=self.LOGS_FILEPATH)
 
-        self.APPLIST_FILEPATH = os.path.join(config.data_dir, "raw", "applist", "applist-games.dat")
+        self.APPLIST_FILEPATH = os.path.join(
+            config.data_dir, "processed", "indexes", "gameids.dat")
         if not os.path.exists(self.APPLIST_FILEPATH):
             raise FileError(self.APPLIST_FILEPATH)
 

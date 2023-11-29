@@ -141,7 +141,7 @@ class ScraperController:
         desc = """
     Calls the selected API and stores the relevant object block of the specified AppIDs to file.
     Automatically checks saved state from previous calls in order to select starting AppID.
-    Uses `<DATA_DIR>/raw/applist/applist.dat` to get an ordered list of AppIDs.
+    Uses `<DATA_DIR>/processed/indexes/appids.dat` to get an ordered list of AppIDs.
     Using the list, starting at the given AppID, processes `-n/--number` AppIDs.
     Continues on unsuccessful API calls (no store page exists); aborts on any error.
         """
@@ -200,7 +200,7 @@ class ScraperController:
         Loads the selected applist slice
         """
         applist_filepath = os.path.join(
-            config.data_dir, "raw", "applist", "applist.dat")
+            config.data_dir, "processed", "indexes", "appids.dat")
         with open(applist_filepath, "r", encoding="UTF-8") as file:
             appids = [int(row) for row in file]
 

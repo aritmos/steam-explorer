@@ -138,7 +138,7 @@ class ScraperController:
         os.makedirs(os.path.join(config.data_dir, "raw", "apptags"), exist_ok=True)
 
         self.APPLIST_GAMES_FILEPATH = os.path.join(
-            config.data_dir, "raw", "applist", "applist-games.dat")
+            config.data_dir, "processed", "indexes", "gameids.dat")
 
     def load(self):
         """

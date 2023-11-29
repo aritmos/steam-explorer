@@ -4,7 +4,7 @@ from tqdm import tqdm
 import json
 
 # """
-# Updates the list of games in `<DATA_DIR>/raw/applist/applist-games.dat`
+# Updates the list of games in `<DATA_DIR>/processed/indexes/gameids.dat`
 # by going through gathered files in `<DATA_DIR>/raw/appinfo` and checking
 # the "type" field.
 # """
@@ -16,7 +16,7 @@ def update():
     APPINFO_DIR = os.path.join(config.data_dir, "raw", "appinfo")
     APPINFO_FILENAME_LIST = os.listdir(APPINFO_DIR)
     APPINFO_FILENAME_LIST.sort()
-    GAMELIST_FILEPATH = os.path.join(config.data_dir, "raw", "applist", "applist-games.dat")
+    GAMELIST_FILEPATH = os.path.join(config.data_dir, "processed", "indexes", "gameids.dat")
     os.makedirs(os.path.dirname(GAMELIST_FILEPATH), exist_ok=True)
 
     game_appids = []
