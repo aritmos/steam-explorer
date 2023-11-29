@@ -8,25 +8,7 @@ The project structure is largely guided by the large amount of API calls (500K+)
 As a result all data is requested once from servers and stored into local files, before being filtered and processed and subsequently uploaded into a local database.
 Within the analysis portion of the project, the data fetching is then replaced via calls to the database instead of repeated calls to the webservers.
 
-```mermaid
-graph LR
-    subgraph Web
-        X[("steampowered.com\nsteamcharts.com\nisthereanydeal.com\n...")]
-    end
-    subgraph Data
-        direction LR
-        A[Local Files] -->|"Store\n(psycopg)"| C[(Local\nDatabase)]
-    end
-    subgraph Analyse
-        Notebook
-    end
-    A -- "Process\n(Python)" --> A
-    Web[Web] --"Gather\n(requests, ...)"--> A
-    C -->|"Fetch \n(SQL + psycopg)"| Notebook
-    Notebook -->|"\n(pandas, pyplot, ...)"| Notebook
-    C -->|"Process\n(pl/Rust)"| C
-    Notebook -->|"Summarise\n(LaTeX)"| E{Report}
-```
+![mermaid](assets/mermaid.png)
 
 ## 📚 Gathering & Processing
 
