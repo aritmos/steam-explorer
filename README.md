@@ -101,7 +101,11 @@ TODO: Data/script flowchart
 
 ## 💻 Storing
 
-TODO: Local `PostgreSQL` database using `psycopg` for I/O and `pl/Rust` extension internally to manage complex querying. 
+Once the data has been gathered and cleaned up in Python it is uploaded into a local Postgres database using [`psycopg`](https://pypi.org/project/psycopg/). Here is the current schema:
+
+![schema](assets/schema.png)
+
+The database's files exist in the **db** directory of the project, where the schema and commonly used views lie. The database is then queried within Jupyter notebooks via `psycopg`. Within time series analysis and application requirements I will be using the [`pl/Rust`](https://github.com/tcdi/plrust) extension for some more robust querying. 
 
 ## 📊 Analyzing
 
