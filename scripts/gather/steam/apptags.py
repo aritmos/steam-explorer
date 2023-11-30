@@ -11,7 +11,7 @@ import time
 import re
 
 from ...config import Config
-from ..errors import ResponseFailure, RequestError, HTMLError
+from ..errors import RequestError, HTMLError
 
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 import requests
@@ -187,11 +187,15 @@ class ScraperController:
 
                 logging.info(f"{appid:07} OK")
                 last_successful_appid = appid
-            except (ResponseFailure, HTMLError) as e:
+            except HTMLError as e:
                 logging.warning(f"{appid:07} {e!r}")
                 continue
             except Exception as e:
                 message = f"{appid:07} {e!r}"
+                if isinstance(e, RequestError) and e.status_code == 502:
+                    logging.warning(f"{appid:07} {e!r}")
+                    continue
+
                 print(message)
                 logging.critical(message)
                 break
