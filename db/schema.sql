@@ -1,129 +1,149 @@
-create type app_type as enum ('game', 'dlc', 'demo');
-create table Apps
+CREATE SCHEMA IF NOT EXISTS public;
+SET SEARCH_PATH TO public;
+
+CREATE TYPE app_kind AS enum ('game', 'dlc', 'demo');
+CREATE TABLE apps
 (
-    id           int      not null primary key,
-    kind         app_type not null,
-    name         text     not null,
-    windows      bool     not null,
-    mac          bool     not null,
-    linux        bool     not null,
-    price        int      not null,
-    metacritic   int,
-    reviews_tot  int, -- switch to non-null after populating
-    reviews_pos  int, -- switch to non-null after populating
-    age          int,
-    release_date date,
-    drm          bool     not null,
-    ext_acc      bool     not null
+    id               int PRIMARY KEY,
+    kind             app_kind NOT NULL,
+    name             text     NOT NULL,
+    supports_windows bool     NOT NULL,
+    supports_mac     bool     NOT NULL,
+    supports_linux   bool     NOT NULL,
+    price            int      NOT NULL,
+    metacritic_score int,
+    reviews_total    int, -- switch to non-null after populating
+    reviews_positive int, -- switch to non-null after populating
+    age_check        int,
+    release_date     date,
+    has_drm          bool     NOT NULL,
+    has_ext_acc      bool     NOT NULL
 );
 
-create table Categories
+CREATE TABLE categories
 (
-    category_id int primary key,
-    name        text not null
+    id   int PRIMARY KEY,
+    name text NOT NULL
 );
 
-create table AppCategories
+CREATE TABLE app_categories
 (
-    app_id      int not null references Apps (id),
-    category_id int not null references Categories (category_id),
-    primary key (app_id, category_id)
+    app_id      int REFERENCES apps (id),
+    category_id int REFERENCES categories (id),
+    PRIMARY KEY (app_id, category_id)
 );
 
-create table Genres
+CREATE TABLE genres
 (
-    id   int primary key,
-    name text not null
+    id   int PRIMARY KEY,
+    name text NOT NULL
 );
 
-create table AppGenres
+CREATE TABLE app_Genres
 (
-    app_id   int not null references Apps (id),
-    genre_id int not null references Genres (id),
-    primary key (app_id, genre_id)
+    app_id   int REFERENCES apps (id),
+    genre_id int REFERENCES genres (id),
+    PRIMARY KEY (app_id, genre_id)
 );
 
-create table Tags
+CREATE TABLE tags
 (
-    id   int primary key,
-    name text not null
+    id   int PRIMARY KEY,
+    name text NOT NULL
 );
 
-create table AppTags
+CREATE TABLE app_tags
 (
-    app_id int not null references Apps (id),
-    tag_id int not null references Tags (id),
-    votes  int not null,
-    primary key (app_id, tag_id)
+    app_id int REFERENCES apps (id),
+    tag_id int REFERENCES tags (id),
+    votes  int NOT NULL,
+    PRIMARY KEY (app_id, tag_id)
 );
 
-create table Developers
+CREATE TABLE developers
 (
-    name text primary key
+    name text PRIMARY KEY
 );
 
-create table AppDevelopers
+CREATE TABLE app_developers
 (
-    app_id    int references Apps (id),
-    developer text references Developers (name),
-    primary key (app_id, developer)
+    app_id    int REFERENCES apps (id),
+    developer text REFERENCES developers (name),
+    PRIMARY KEY (app_id, developer)
 );
 
-create table Publishers
+CREATE TABLE publishers
 (
-    name text primary key
+    name text PRIMARY KEY
 );
 
-create table AppPublishers
+CREATE TABLE app_publishers
 (
-    app_id    int references Apps (id),
-    publisher text references Publishers (name),
-    primary key (app_id, publisher)
+    app_id    int REFERENCES apps (id),
+    publisher text REFERENCES publishers (name),
+    PRIMARY KEY (app_id, publisher)
+);
+
+CREATE TABLE languages
+(
+    language_code varchar(6) PRIMARY KEY,
+    name          varchar(20) NOT NULL
+);
+
+CREATE TABLE app_languages
+(
+    app_id        int REFERENCES apps (id),
+    language_code varchar(6) REFERENCES languages (language_code),
+    PRIMARY KEY (app_id, language_code)
 );
 
 
-create type platform_type as enum ('windows', 'mac', 'linux');
-create type req_type as enum ('minimum', 'recommended');
-create table AppRequirements
+CREATE TYPE platform_kind AS enum ('windows', 'mac', 'linux');
+CREATE TYPE performance_category AS enum ('minimum', 'recommended');
+CREATE TYPE requirement_classifier AS
 (
-    app_id    int           not null references Apps (id),
-    platform  platform_type not null,
-    kind      req_type      not null,
-    processor text,
-    memory    int,
-    graphics  text,
-    storage   int, -- MB ?
-    primary key (app_id, platform, kind)
+    platform    platform_kind,
+    performance performance_category
+);
+CREATE TABLE app_requirements
+(
+    app_id     int REFERENCES apps (id),
+    classifier requirement_classifier,
+    processor  text,
+    memory     int,
+    graphics   text,
+    storage    int, -- MB ?
+    PRIMARY KEY (app_id, classifier)
 );
 
-create table AppPlayerCounts
+CREATE TABLE app_playercounts
 (
-    app_id  int   not null references Apps (id),
-    month   date  not null,
-    average float not null,
-    peak    int   not null,
-    primary key (app_id, month)
+    app_id              int REFERENCES apps (id),
+    month_date          date,
+    playercount_average float NOT NULL,
+    playercount_peak    int   NOT NULL,
+    PRIMARY KEY (app_id, month_date)
 );
 
-create table AppPriceHistory
+CREATE TABLE app_pricehistory
 (
-    app_id     int       not null references Apps (id),
-    time       timestamp not null,
-    full_price int       not null, -- in cents
-    curr_price int       not null, -- in cents
-    primary key (app_id, time)
+    app_id        int REFERENCES apps (id),
+    time          timestamp,
+    price_full    int NOT NULL, -- in cents
+    price_current int NOT NULL, -- in cents
+    PRIMARY KEY (app_id, time)
 );
 
-create table DLCs
+CREATE TABLE dlcs
 (
-    game_app_id int references Apps (id),
-    dlc_app_id int references Apps (id),
-    primary key (game_app_id, dlc_app_id)
+    game_app_id int REFERENCES apps (id),
+    dlc_app_id  int REFERENCES apps (id),
+    PRIMARY KEY (game_app_id, dlc_app_id)
 );
 
-create table Demos
+CREATE TABLE demos
 (
-    game_app_id int references Apps (id),
-    demo_app_id int references Apps (id),
-    primary key (game_app_id, demo_app_id)
+    game_app_id int REFERENCES apps (id),
+    demo_app_id int REFERENCES apps (id),
+    PRIMARY KEY (game_app_id, demo_app_id)
 );
