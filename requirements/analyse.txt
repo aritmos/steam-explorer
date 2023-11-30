@@ -1,4 +1,5 @@
 jupyter
 pandas
 plotly
-psycopg
+psycopg[binary]
+sqlalchemy
