@@ -72,11 +72,11 @@ class Scraper():
     def save(self):
         """
         Saves the appid's tags to file
-        Writes to `<DATA_DIR>/raw/<apifolder>/<appid>.dat`.
+        Writes to `<DATA_DIR>/raw/<apifolder>/<appid>.json`.
         """
 
         # WARNING: the inner directory is also hardcoded in `ScraperController.set_files()`
-        filepath = os.path.join(config.data_dir, "raw", "apptags", f"{self.appid:07}.dat")
+        filepath = os.path.join(config.data_dir, "raw", "apptags", f"{self.appid:07}.json")
 
         with open(filepath, "w", encoding="UTF-8") as file:
             # tags = [tag + "\n" for tag in self.data]
