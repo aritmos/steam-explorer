@@ -12,12 +12,13 @@ CREATE TABLE apps
     supports_linux   bool     NOT NULL,
     price            int      NOT NULL,
     metacritic_score int,
-    reviews_total    int, -- switch to non-null after populating
-    reviews_positive int, -- switch to non-null after populating
+    reviews_total    int,  -- switch to non-null after populating
+    reviews_positive int,  -- switch to non-null after populating
     age_check        int,
-    release_date     date,
+    release_date     date, -- NULL if not released yet
     has_drm          bool     NOT NULL,
-    has_ext_acc      bool     NOT NULL
+    has_ext_acc      bool     NOT NULL,
+    achievements     int      NOT NULL
 );
 
 CREATE TABLE categories
@@ -87,7 +88,7 @@ CREATE TABLE app_publishers
 CREATE TABLE languages
 (
     language_code varchar(6) PRIMARY KEY,
-    name          varchar(20) NOT NULL
+    name          varchar(21) NOT NULL
 );
 
 CREATE TABLE app_languages
