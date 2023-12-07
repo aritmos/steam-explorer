@@ -1,0 +1,20 @@
+{
+    "root_dir": "/home/aritmos/dev/github/steam-insights",
+    "prefix_root": true,
+    "dirs": {
+        "data": "data",
+        "logs": ".logs",
+        "state": ".state"
+    },
+    "logging": {
+        "format": "{levelname:8} {message}"
+    },
+    "db": {
+        "default_conn": "postgresql+psycopg",
+        "host": "$winhost",
+        "port": 5432,
+        "user": "postgres",
+        "password": true,
+        "dbname": "steam-insights"
+    }
+}
