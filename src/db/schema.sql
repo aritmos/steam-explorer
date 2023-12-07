@@ -40,7 +40,7 @@ CREATE TABLE genres
     name text NOT NULL
 );
 
-CREATE TABLE app_Genres
+CREATE TABLE app_genres
 (
     app_id   int REFERENCES apps (id),
     genre_id int REFERENCES genres (id),
