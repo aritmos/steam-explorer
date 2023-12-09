@@ -3,3 +3,4 @@
 * text=auto
 *.sql linguist-detectable=true
 *.sql linguist-language=sql text=auto
+*.html linguist-vendored
