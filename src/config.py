@@ -43,7 +43,8 @@ class Config:
             db = self.config["db"]
             if db["password"]:
                 try:
-                    with open("SECRETS.json", "r") as file:
+                    secrets_filepath = os.path.join(self.config["root_dir"], "SECRETS.json")
+                    with open(secrets_filepath, "r") as file:
                         password = json.load(file)["db_password"]
                 except FileNotFoundError:
                     print("Could not find `SECRETS.json` file in project root.\
