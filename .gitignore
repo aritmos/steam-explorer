@@ -8,6 +8,7 @@ scripts/config.json
 pyrightconfig.json
 testing/
 test.ipynb
+.virtual_documents/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
