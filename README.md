@@ -12,11 +12,19 @@ The project structure is largely guided by the large data-gathering bottleneck o
 
 Basic details and reviews are gathered using the public steam apis (https://store.steampowered.com/api and https://api.steampowered.com), historic prices and playercounts are scraped from https://isthereanydeal.com/ and https://steamcharts.com/ . These latter two only contain a small subset of the apps gathered with the steam api; they are the only websites with their respective datasets that did not prohibit webscraping within terms of service.
 
-I wanted to emulate the retrieval of the data from one common server within my analysis section therefore all the information is firstly gathered into disk, before being cleaned up and passed into a local (Postgres) database. Data analysis will be done with interactive python notebooks and the final writeup will be done in LaTeX.
+I wanted to emulate the retrieval of the data from one common server within my analysis section therefore all the information is firstly gathered into disk, before being cleaned up and passed into a local (Postgres) database. Data analysis will be done with interactive python notebooks which are then compiled into a static website. The global workflow is as follows:
 
-![mermaid](assets/mermaid.png)
+1. Gather (`requests`): Gather data from public and internal web APIs. Store raw information into disk.
+2. Process (`python`): Clean up data, as well as producing necessary indexes for gathering additional data.
+3. Upload (`Postgres` + `psycopg`): Create a local (Postgres) database and upload data.
+4. Fetch (`psycopg` + `jupysql`): Fetch data from database using inline SQL in notebooks.
+5. Analyse (`jupyterlab` + `myst-nb` + `pandas` + `seaborn`): Explore data, visualise trends, summarise findings.
+6. Compile (`jupyter book`): Compile notebooks and markdown into a static site
 
-## 📚 Environments and Configuration
+**TODO**: Host the current state of the compiled website on GitHub pages.
+
+## 🔎 Internals
+### ⚙ Environments and Configuration
 
 (Optional) create and initialise a virtual environment for the project, e.g. (on UNIX):
 ```
@@ -64,7 +72,7 @@ The configuration is backed by the `src/config.json` configuration file, which m
     - The `host` field can have the special sentinel value of `$winhost`, used when the database service runs on a windows host, but the code is running from within WSL. In this case the windows host ip is retrieved from the `/etc/resolv.conf` file.
     - If the `password` field is set to true, the database password is looked up in a `db_password` field within a `SECRETS.json` file within the project root.
 
-## Script Usage
+### Script Usage
 
 All the scripts are python modules, able to relatively import the defined configuration. They therefore **always require passing the `-m` flag to the python interpreter**. 
 Due to the large nature of the datasets and a non-server setup the scripts have been created to gather the data in batches. The process is fully automated by caching the script's state (files in the state directory) upon completion, with the user simply specifying how many requests to attempt at a time in these cases. In the case of an unexpected panic/exit (such as a `KeyboardInterrupt`) the scripts state will need to be updated using the logs file (as these files get updated upon the processing of every request).
@@ -98,19 +106,17 @@ IMPORTANT: Setting SLEEP < 1.5 with NUMBER > 200 requests will trigger an HTTP 4
 
 TODO: Data/script flowchart
 
-## 💻 Storing
+### 💻 Storing
 
 Once the data has been gathered and cleaned up in Python it is uploaded into a local Postgres database using [`psycopg`](https://pypi.org/project/psycopg/). Here is the current schema:
 
 ![schema](assets/schema.png)
 
-The database's files exist in the `src/db` directory of the project, where the schema and commonly used views lie. The database is then queried within Jupyter notebooks via `psycopg` and `sqlalchemy` (for better interop with `pandas`). Within time series analysis and application requirements I am looking to use the [`pl/Rust`](https://github.com/tcdi/plrust) extension for some more robust querying. 
+Database-related files—such as the schema, cleanup and common virtual tables—exist in the `src/db` directory of the project. The database is then queried within Jupyter notebooks via `psycopg`, `sqlalchemy` (for better interop with `pandas`), and `jupysql` for cell magic allowing raw SQL queries within notebooks. Originally I also wanted to try out [`pl/Rust`](https://github.com/tcdi/plrust) or [`pgrx`](https://github.com/pgcentralfoundation/pgrx) but these require the database to also be running on a UNIX system, and are not really needed given the robustness that `pandas` provides. 
 
-## 📊 Analyzing
+### 📊 Analyzing
 
-TODO: `Jupyter` notebooks, using standard data-oriented libraries (`numpy`, `pandas`, `plotly`, ...) 
-
+TODO: `Jupyter` notebooks,  (`pandas`, `seaborn`, `scipy` ...).
 ## ✍️ Summary
 
-TODO: `LaTeX` writeup
-
+TODO: Notebooks along with markdown files are compiled into a static site using `Jupyter Book`.
