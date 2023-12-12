@@ -1,0 +1,1406 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>DLCs &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'dlc';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Overview" href="overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to Steam-Insights
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">DLCs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdlc.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/dlc.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>DLCs</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-count-analysis">Release Count Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tag-analysis-of-games-with-100-dlcs">Tag Analysis of Games with 100+ DLCs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#average-dlc-price-distribution">Average DLC Price Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dlc-release-time-distributions">DLC Release Time Distributions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dlcs">
+<h1>DLCs<a class="headerlink" href="#dlcs" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Setup ---</span>
+
+<span class="c1"># Module Imports</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)))</span>
+<span class="kn">from</span> <span class="nn">config</span> <span class="kn">import</span> <span class="n">Config</span>
+
+<span class="kn">import</span> <span class="nn">sqlalchemy</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># DB Connection</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">db_uri</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">load_ext</span> sql
+<span class="o">%</span><span class="k">sql</span> engine
+
+<span class="c1"># Plots</span>
+
+<span class="n">palette_blue_yellow</span> <span class="o">=</span> <span class="s2">&quot;blend:#7AB,#EDA&quot;</span>
+<span class="n">tiffany_blue</span> <span class="o">=</span> <span class="s2">&quot;#7AB&quot;</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;#ffffff&quot;</span><span class="p">,</span> <span class="n">tiffany_blue</span><span class="p">)</span>
+<span class="n">bool_tiffany_cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">&#39;BinaryTiffanyBlue&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="release-count-analysis">
+<h2>Release Count Analysis<a class="headerlink" href="#release-count-analysis" title="Permalink to this heading">#</a></h2>
+<p>Release Count Distribution</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> game_dlc_counts_result &lt;&lt;
+WITH dlc_count_tb AS (SELECT game_app_id, COUNT(*) AS dlc_count
+                      FROM game_dlcs
+                      GROUP BY game_app_id),
+     games AS (SELECT id FROM apps WHERE kind = &#39;game&#39;)
+SELECT g.id, COALESCE(d.dlc_count, 0) AS dlc_count
+FROM games AS g
+         LEFT JOIN dlc_count_tb AS d ON g.id = d.game_app_id;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="None">Running query in &#x27;postgresql+psycopg://postgres:***@172.18.144.1:5432/steam-insights&#x27;</span></div><div class="output text_html"><span style="color: green">98904 rows affected.</span></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">game_dlc_counts_df</span> <span class="o">=</span> <span class="n">game_dlc_counts_result</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">game_dlc_counts_df</span><span class="p">[</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    98904.000000
+mean         0.404251
+std         12.411454
+min          0.000000
+25%          0.000000
+50%          0.000000
+75%          0.000000
+max       2883.000000
+Name: dlc_count, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">game_dlc_counts_df</span><span class="p">[</span><span class="s2">&quot;has_dlc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">game_dlc_counts_df</span><span class="p">[</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="n">has_dlc</span> <span class="o">=</span> <span class="n">game_dlc_counts_df</span><span class="p">[</span><span class="s2">&quot;has_dlc&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">fraction_has_dlc</span> <span class="o">=</span> <span class="n">has_dlc</span><span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">has_dlc</span><span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">+</span> <span class="n">has_dlc</span><span class="p">[</span><span class="kc">False</span><span class="p">])</span>
+<span class="n">percentage_has_dlc</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fraction_has_dlc</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Percentage of games with (game) DLCs: <span class="output text_plain">9.02%</span></p>
+<p>DLC (non-zero) count distribution</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">has_dlc_counts</span> <span class="o">=</span> <span class="n">game_dlc_counts_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">game_dlc_counts_df</span><span class="p">[</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;dlc_count&quot;</span><span class="p">]]</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">has_dlc_counts</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">tiffany_blue</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;DLC Count&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Probability distribution for games with DLC&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c68e891ee86fee8f95cb0a32990bc251727b98e6710cfaa0eb1331750e285474.png" src="_images/c68e891ee86fee8f95cb0a32990bc251727b98e6710cfaa0eb1331750e285474.png" />
+</div>
+</div>
+<p>DLC Count Factors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get tag data</span>
+<span class="n">app_tags_result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> SELECT * FROM app_tags
+<span class="n">app_tags_df</span> <span class="o">=</span> <span class="n">app_tags_result</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="n">tags_result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> SELECT * FROM tags
+<span class="n">tags_df</span> <span class="o">=</span> <span class="n">tags_result</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="c1"># # pick whether each game is singleplayer or multiplayer using tag votes </span>
+<span class="c1"># game_dlc_counts[&quot;sp_or_mp&quot;] = app_tags_df.loc[game_dlc_counts[&quot;id&quot;]]</span>
+
+
+
+<span class="c1"># Tagids:</span>
+<span class="c1"># &quot;Singleplayer&quot;: 4182</span>
+<span class="c1"># &quot;Multiplayer&quot;: 3859</span>
+
+<span class="n">app_play_mode</span> <span class="o">=</span> <span class="n">app_tags_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">app_tags_df</span><span class="p">[</span><span class="s2">&quot;tag_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">4182</span><span class="p">,</span> <span class="mi">3859</span><span class="p">])]</span> <span class="c1"># keep only SP and MP tags</span>
+<span class="n">app_play_mode</span> <span class="o">=</span> <span class="n">app_play_mode</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;app_id&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;tag_id&quot;</span><span class="p">:</span> <span class="s2">&quot;play_mode&quot;</span><span class="p">})</span>
+<span class="n">app_play_mode</span><span class="p">[</span><span class="s2">&quot;play_mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">app_play_mode</span><span class="p">[</span><span class="s2">&quot;play_mode&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;Singleplayer&quot;</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">4182</span> <span class="k">else</span> <span class="s2">&quot;Multiplayer&quot;</span><span class="p">)</span> <span class="c1"># map tag id to tag name</span>
+<span class="n">app_play_mode</span> <span class="o">=</span> <span class="n">app_play_mode</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">app_play_mode</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)[</span><span class="s2">&quot;votes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()]</span> <span class="c1"># take tag with largest vote</span>
+<span class="n">app_play_mode</span> <span class="o">=</span> <span class="n">app_play_mode</span><span class="p">[[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;play_mode&quot;</span><span class="p">]]</span>
+<span class="n">app_play_mode</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="None">Running query in &#x27;postgresql+psycopg://postgres:***@172.18.144.1:5432/steam-insights&#x27;</span></div><div class="output text_html"><span style="color: green">1408524 rows affected.</span></div><div class="output text_html"><span style="None">Running query in &#x27;postgresql+psycopg://postgres:***@172.18.144.1:5432/steam-insights&#x27;</span></div><div class="output text_html"><span style="color: green">443 rows affected.</span></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>play_mode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>744571</th>
+      <td>10</td>
+      <td>Multiplayer</td>
+    </tr>
+    <tr>
+      <th>396238</th>
+      <td>20</td>
+      <td>Multiplayer</td>
+    </tr>
+    <tr>
+      <th>1246688</th>
+      <td>30</td>
+      <td>Multiplayer</td>
+    </tr>
+    <tr>
+      <th>64099</th>
+      <td>40</td>
+      <td>Multiplayer</td>
+    </tr>
+    <tr>
+      <th>1114797</th>
+      <td>50</td>
+      <td>Singleplayer</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot SP vs MP</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">game_dlc_counts_df</span><span class="p">,</span> <span class="n">app_play_mode</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(98904, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot SP vs MP</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">game_dlc_counts_df</span><span class="p">,</span> <span class="n">app_play_mode</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+
+<span class="n">plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">],</span> <span class="n">hue</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;play_mode&quot;</span><span class="p">],</span> <span class="n">split</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">gridsize</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;blend:#7AB,#EDA&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;DLC Count&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">)])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Play Mode&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;DLC Distribution of Singleplayer vs Multiplayer Titles (2000 Gridsize)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2eaf0ae4b2a783e2742b460a0dd0349f312672248e035aa66a5df9eb59d3727f.png" src="_images/2eaf0ae4b2a783e2742b460a0dd0349f312672248e035aa66a5df9eb59d3727f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;play_mode&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Singleplayer&quot;</span><span class="p">]</span>
+<span class="n">sp_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span>
+<span class="n">sp_has_dlc_fraction</span> <span class="o">=</span> <span class="p">(</span><span class="n">sp</span><span class="p">[</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span>
+<span class="n">sp_perc</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sp_has_dlc_fraction</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span>
+
+<span class="n">mp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;play_mode&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Multiplayer&quot;</span><span class="p">]</span>
+<span class="n">mp_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mp</span><span class="p">)</span>
+<span class="n">mp_has_dlc_fraction</span> <span class="o">=</span> <span class="p">(</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">mp</span><span class="p">)</span>
+<span class="n">mp_perc</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mp_has_dlc_fraction</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Out of <span class="output text_plain">52214</span> singleplayer games, <span class="output text_plain">8.83%</span> have DLCs, while out of <span class="output text_plain">10480</span> multiplayer games <span class="output text_plain">13.90%</span> have DLCs</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot game type distributions</span>
+
+<span class="n">tag_name_to_id</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;Shooter&quot;</span><span class="p">,</span> <span class="mi">1774</span><span class="p">),</span> 
+    <span class="p">(</span><span class="s2">&quot;Adventure&quot;</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> 
+    <span class="p">(</span><span class="s2">&quot;RPG&quot;</span><span class="p">,</span> <span class="mi">122</span><span class="p">),</span> 
+    <span class="p">(</span><span class="s2">&quot;Simulation&quot;</span><span class="p">,</span> <span class="mi">599</span><span class="p">),</span> 
+    <span class="p">(</span><span class="s2">&quot;Strategy&quot;</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> 
+    <span class="p">(</span><span class="s2">&quot;Sports/Racing&quot;</span><span class="p">,</span> <span class="mi">701</span><span class="p">),</span>  <span class="c1"># Sports </span>
+    <span class="p">(</span><span class="s2">&quot;Sports/Racing&quot;</span><span class="p">,</span>  <span class="mi">699</span><span class="p">),</span> <span class="c1"># Racing</span>
+    <span class="p">(</span><span class="s2">&quot;Sexual Content&quot;</span><span class="p">,</span> <span class="mi">12095</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">app_main_tag</span> <span class="o">=</span> <span class="n">app_tags_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">app_tags_df</span><span class="p">[</span><span class="s2">&quot;tag_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tag_name_to_id</span><span class="p">))]</span> <span class="c1"># keep only chosen tags</span>
+<span class="n">app_main_tag</span> <span class="o">=</span> <span class="n">app_main_tag</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">app_main_tag</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;app_id&quot;</span><span class="p">)[</span><span class="s2">&quot;votes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()]</span> <span class="c1"># take tag with largest vote</span>
+<span class="n">app_main_tag</span><span class="p">[</span><span class="s2">&quot;main_tag&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">app_main_tag</span><span class="p">[</span><span class="s2">&quot;tag_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">tag_id</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tag_name_to_id</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">tag_id</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">app_main_tag</span> <span class="o">=</span> <span class="n">app_main_tag</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;app_id&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">})</span>
+<span class="n">app_main_tag</span> <span class="o">=</span> <span class="n">app_main_tag</span><span class="p">[[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;main_tag&quot;</span><span class="p">]]</span>
+<span class="n">app_main_tag</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>main_tag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>744572</th>
+      <td>10</td>
+      <td>Shooter</td>
+    </tr>
+    <tr>
+      <th>396241</th>
+      <td>20</td>
+      <td>Shooter</td>
+    </tr>
+    <tr>
+      <th>1246689</th>
+      <td>30</td>
+      <td>Shooter</td>
+    </tr>
+    <tr>
+      <th>64100</th>
+      <td>40</td>
+      <td>Shooter</td>
+    </tr>
+    <tr>
+      <th>1114798</th>
+      <td>50</td>
+      <td>Shooter</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># main tag distribution plot</span>
+<span class="n">app_main_tag</span><span class="p">[</span><span class="s2">&quot;main_tag&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;pie&quot;</span><span class="p">,</span>
+    <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">palette_blue_yellow</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tag_name_to_id</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+    <span class="c1"># colors= sns.color_palette(&quot;hls&quot;, len(tag_name_to_id)-1),</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Grouped Games by Main Genre Distribution&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Grouped Games by Main Genre Distribution&#39;}&gt;
+</pre></div>
+</div>
+<img alt="_images/2d0e07668d69eceeae5fed795c85e49aad2a5a2cdf6f8adabb7d4b63f6956056.png" src="_images/2d0e07668d69eceeae5fed795c85e49aad2a5a2cdf6f8adabb7d4b63f6956056.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">game_dlc_counts_df</span><span class="p">,</span> <span class="n">app_main_tag</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">],</span> 
+    <span class="n">hue</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;main_tag&quot;</span><span class="p">],</span>
+    <span class="n">hue_order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Adventure&quot;</span><span class="p">,</span> <span class="s2">&quot;Shooter&quot;</span><span class="p">,</span> <span class="s2">&quot;Strategy&quot;</span><span class="p">,</span> <span class="s2">&quot;Simulation&quot;</span><span class="p">,</span> <span class="s2">&quot;Sports/Racing&quot;</span><span class="p">,</span><span class="s2">&quot;RPG&quot;</span><span class="p">,</span>  <span class="s2">&quot;Sexual Content&quot;</span><span class="p">],</span>
+    <span class="n">gridsize</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;blend:#7AB,#EDA&quot;</span>
+    <span class="c1"># color= tiffany_blue,</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Genre&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;DLC Count&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Game Genre&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/58d8b2af5b60cc7b035e8ad503fe1a0c5bec013b72ae2750fa112f35d6c664b7.png" src="_images/58d8b2af5b60cc7b035e8ad503fe1a0c5bec013b72ae2750fa112f35d6c664b7.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">has_dlc_counts_extrema</span> <span class="o">=</span> <span class="n">has_dlc_counts</span><span class="p">[</span><span class="n">has_dlc_counts</span><span class="p">[</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">dlc_extrema_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">has_dlc_counts_extrema</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span>
+    <span class="n">has_dlc_counts_extrema</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">,</span> <span class="n">whis</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="mf">.6</span><span class="p">,</span> <span class="n">log_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">tiffany_blue</span>
+<span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">has_dlc_counts_extrema</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;.3&quot;</span><span class="p">,</span> <span class="n">log_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ticks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">3000</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;DLC Count&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Distribution of DLC count extrema (30+ DLCs)&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/70265cf05d29df1b149059b63a72aeae2acf7105d9e30c65205470a437661056.png" src="_images/70265cf05d29df1b149059b63a72aeae2acf7105d9e30c65205470a437661056.png" />
+</div>
+</div>
+</section>
+<section id="tag-analysis-of-games-with-100-dlcs">
+<h2>Tag Analysis of Games with 100+ DLCs<a class="headerlink" href="#tag-analysis-of-games-with-100-dlcs" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_dlc_counts</span> <span class="o">=</span> <span class="n">has_dlc_counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">has_dlc_counts</span><span class="p">[</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">top_dlc_counts_ids</span> <span class="o">=</span> <span class="n">top_dlc_counts</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+<span class="n">dlc_100p_count</span> <span class="o">=</span> <span class="n">top_dlc_counts_ids</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> result &lt;&lt;
+SELECT *
+FROM app_tags
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="None">Running query in &#x27;postgresql+psycopg://postgres:***@172.18.144.1:5432/steam-insights&#x27;</span></div><div class="output text_html"><span style="color: green">1408524 rows affected.</span></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app_tags_df</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="c1"># filter to only have games with 100+ DLC</span>
+<span class="n">app_tags_df</span> <span class="o">=</span> <span class="n">app_tags_df</span><span class="p">[</span><span class="n">app_tags_df</span><span class="p">[</span><span class="s2">&quot;app_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">top_dlc_counts_ids</span><span class="p">)]</span>
+<span class="c1"># filter to only have top 5 tags for each game</span>
+<span class="n">app_tags_df</span> <span class="o">=</span> <span class="n">app_tags_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;votes&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;app_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1"># remove votes column</span>
+<span class="n">app_tags_df</span> <span class="o">=</span> <span class="n">app_tags_df</span><span class="p">[[</span><span class="s2">&quot;app_id&quot;</span><span class="p">,</span> <span class="s2">&quot;tag_id&quot;</span><span class="p">]]</span>
+<span class="n">app_tags_df</span><span class="p">[</span><span class="s2">&quot;tag_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app_result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> SELECT id, name FROM apps
+<span class="n">tag_result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> SELECT * FROM tags
+
+<span class="n">top_apps_df</span> <span class="o">=</span> <span class="n">app_result</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">top_apps_df</span> <span class="o">=</span> <span class="n">top_apps_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">top_apps_df</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">top_dlc_counts_ids</span><span class="p">)]</span>
+
+<span class="n">tags_df</span> <span class="o">=</span> <span class="n">tag_result</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="None">Running query in &#x27;postgresql+psycopg://postgres:***@172.18.144.1:5432/steam-insights&#x27;</span></div><div class="output text_html"><span style="color: green">154189 rows affected.</span></div><div class="output text_html"><span style="None">Running query in &#x27;postgresql+psycopg://postgres:***@172.18.144.1:5432/steam-insights&#x27;</span></div><div class="output text_html"><span style="color: green">443 rows affected.</span></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a binary matrix for app_id &lt;-&gt; tag_id relation</span>
+<span class="n">binary_matrix</span> <span class="o">=</span> <span class="n">app_tags_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;app_id&#39;</span><span class="p">,</span> <span class="s1">&#39;tag_id&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># sort (vertically) matrix by dlc count</span>
+<span class="n">binary_matrix</span> <span class="o">=</span> <span class="n">binary_matrix</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">top_dlc_counts</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">)[</span><span class="s2">&quot;id&quot;</span><span class="p">]]</span>
+<span class="c1"># sort (horizontally) matrix by tag count</span>
+<span class="n">binary_matrix</span> <span class="o">=</span> <span class="n">binary_matrix</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">binary_matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+
+<span class="c1"># use app and tag names instead of ids</span>
+<span class="n">binary_matrix</span> <span class="o">=</span> <span class="n">binary_matrix</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">top_apps_df</span><span class="p">[[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+<span class="n">binary_matrix</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">tags_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">binary_matrix</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">binary_matrix</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">bool_tiffany_cmap</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Tag presence for games with 100+ dlcs&quot;</span><span class="p">)</span>
+<span class="c1"># Force all labels to be displayed on both axes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">binary_matrix</span><span class="o">.</span><span class="n">columns</span><span class="p">)),</span> <span class="n">labels</span><span class="o">=</span><span class="n">binary_matrix</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">binary_matrix</span><span class="o">.</span><span class="n">index</span><span class="p">)),</span> <span class="n">labels</span><span class="o">=</span><span class="n">binary_matrix</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tags (Decresing presence count)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Games (Increasing DLC count)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f6709a4d2f6309e9114374e1827e92e223fe90cbcc665b2a7ead604431258a84.png" src="_images/f6709a4d2f6309e9114374e1827e92e223fe90cbcc665b2a7ead604431258a84.png" />
+</div>
+</div>
+<p>We can the bottom half of the games, those exactly on the 100 DLC boundary all have “Tiger” in their name, these are all made by the same developer (TigerQiuQiu) and each include 100 map packs as DLC. We redo the plot excluding these games to get a better representation of tag presence:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Tag Analysis of Games with 100+ DLCs (Exlcuding &quot;TigerQiuQiu&quot; Developer)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> tqq_game_ids &lt;&lt;
+SELECT app_id
+FROM app_developers LEFT JOIN apps ON apps.id = app_developers.app_id
+WHERE developer = &#39;TigerQiuQiu&#39; and apps.kind = &#39;game&#39;;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="None">Running query in &#x27;postgresql+psycopg://postgres:***@172.18.144.1:5432/steam-insights&#x27;</span></div><div class="output text_html"><span style="color: green">38 rows affected.</span></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_dlc_counts</span> <span class="o">=</span> <span class="n">has_dlc_counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">has_dlc_counts</span><span class="p">[</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Filter out TQQ games</span>
+<span class="n">tqq_appids</span> <span class="o">=</span> <span class="n">tqq_game_ids</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()[</span><span class="s2">&quot;app_id&quot;</span><span class="p">]</span>
+<span class="n">top_dlc_counts</span> <span class="o">=</span> <span class="n">top_dlc_counts</span><span class="p">[</span><span class="o">~</span><span class="n">top_dlc_counts</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">tqq_appids</span><span class="p">)]</span>
+
+
+<span class="c1"># Recreate data</span>
+<span class="n">top_dlc_counts_ids</span> <span class="o">=</span> <span class="n">top_dlc_counts</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+
+<span class="n">app_tags_df</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">app_tags_df</span> <span class="o">=</span> <span class="n">app_tags_df</span><span class="p">[</span><span class="n">app_tags_df</span><span class="p">[</span><span class="s2">&quot;app_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">top_dlc_counts_ids</span><span class="p">)]</span>
+<span class="n">app_tags_df</span> <span class="o">=</span> <span class="n">app_tags_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;votes&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;app_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">app_tags_df</span> <span class="o">=</span> <span class="n">app_tags_df</span><span class="p">[[</span><span class="s2">&quot;app_id&quot;</span><span class="p">,</span> <span class="s2">&quot;tag_id&quot;</span><span class="p">]]</span>
+
+<span class="n">app_result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> SELECT id, name FROM apps
+<span class="n">tag_result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> SELECT * FROM tags
+<span class="n">top_apps_df</span> <span class="o">=</span> <span class="n">app_result</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">top_apps_df</span> <span class="o">=</span> <span class="n">top_apps_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">top_apps_df</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">top_dlc_counts_ids</span><span class="p">)]</span>
+<span class="n">tags_df</span> <span class="o">=</span> <span class="n">tag_result</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="c1"># Recreate plot</span>
+<span class="n">binary_matrix</span> <span class="o">=</span> <span class="n">app_tags_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;app_id&#39;</span><span class="p">,</span> <span class="s1">&#39;tag_id&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">binary_matrix</span> <span class="o">=</span> <span class="n">binary_matrix</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">top_dlc_counts</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">)[</span><span class="s2">&quot;id&quot;</span><span class="p">]]</span>
+<span class="n">binary_matrix</span> <span class="o">=</span> <span class="n">binary_matrix</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">binary_matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+<span class="n">binary_matrix</span> <span class="o">=</span> <span class="n">binary_matrix</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">top_apps_df</span><span class="p">[[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+<span class="n">binary_matrix</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">tags_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">binary_matrix</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">binary_matrix</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">bool_tiffany_cmap</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Tag presence for games with 100+ dlcs (Exluding &#39;TigerQiuQiu&#39; Developer)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">binary_matrix</span><span class="o">.</span><span class="n">columns</span><span class="p">)),</span> <span class="n">labels</span><span class="o">=</span><span class="n">binary_matrix</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">binary_matrix</span><span class="o">.</span><span class="n">index</span><span class="p">)),</span> <span class="n">labels</span><span class="o">=</span><span class="n">binary_matrix</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tags (Decresing Presence Count)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Games (Decreasing DLC Count)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="None">Running query in &#x27;postgresql+psycopg://postgres:***@172.18.144.1:5432/steam-insights&#x27;</span></div><div class="output text_html"><span style="color: green">154189 rows affected.</span></div><div class="output text_html"><span style="None">Running query in &#x27;postgresql+psycopg://postgres:***@172.18.144.1:5432/steam-insights&#x27;</span></div><div class="output text_html"><span style="color: green">443 rows affected.</span></div><img alt="_images/d34fbb32f84237ba1f8accb407c82ea2a0a1cd8b3fdccca3b1f3e7ea4dd5a571.png" src="_images/d34fbb32f84237ba1f8accb407c82ea2a0a1cd8b3fdccca3b1f3e7ea4dd5a571.png" />
+</div>
+</div>
+</section>
+<section id="average-dlc-price-distribution">
+<h2>Average DLC Price Distribution<a class="headerlink" href="#average-dlc-price-distribution" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> game_dlc_pricedata &lt;&lt;
+WITH game_dlc_stats AS (SELECT d.game_app_id       AS app_id,
+                               COUNT(d.dlc_app_id) AS dlc_count,
+                               ROUND(AVG(a.price)) AS avg_dlc_price
+                        FROM game_dlcs AS d
+                                 LEFT JOIN apps AS a ON a.id = d.dlc_app_id
+                        GROUP BY d.game_app_id)
+SELECT a.id as game_id, a.price AS game_price, d.dlc_count, d.avg_dlc_price
+FROM game_dlc_stats AS d
+         LEFT JOIN apps AS a ON d.app_id = a.id;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="None">Running query in &#x27;postgresql+psycopg://postgres:***@172.18.144.1:5432/steam-insights&#x27;</span></div><div class="output text_html"><span style="color: green">8918 rows affected.</span></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dlc_count_pricing</span> <span class="o">=</span> <span class="n">game_dlc_pricedata</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="c1"># turn prices from cents into euros</span>
+<span class="n">dlc_count_pricing</span><span class="p">[</span><span class="s2">&quot;game_price&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dlc_count_pricing</span><span class="p">[</span><span class="s2">&quot;game_price&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span>
+<span class="n">dlc_count_pricing</span><span class="p">[</span><span class="s2">&quot;game_price&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dlc_count_pricing</span><span class="p">[</span><span class="s2">&quot;game_price&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">dlc_count_pricing</span><span class="p">[</span><span class="s2">&quot;avg_dlc_price&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dlc_count_pricing</span><span class="p">[</span><span class="s2">&quot;avg_dlc_price&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span>
+<span class="n">dlc_count_pricing</span><span class="p">[</span><span class="s2">&quot;avg_dlc_price&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dlc_count_pricing</span><span class="p">[</span><span class="s2">&quot;avg_dlc_price&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create price bands for plot</span>
+
+<span class="n">bands</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Free&quot;</span><span class="p">,</span> <span class="s2">&quot;  1¢ - 4.99€&quot;</span><span class="p">,</span> <span class="s2">&quot;  5€ - 9.99€&quot;</span><span class="p">,</span> <span class="s2">&quot;10€ - 14.99€&quot;</span><span class="p">,</span> <span class="s2">&quot;15€ - 24.99€&quot;</span><span class="p">,</span><span class="s2">&quot;25€ - 39.99€&quot;</span><span class="p">,</span> <span class="s2">&quot;40€ +&quot;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">price_band</span><span class="p">(</span><span class="n">p</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bands</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mf">5.0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bands</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mf">10.0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bands</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mf">15.0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bands</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mf">25.0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bands</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mf">40.0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bands</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bands</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+
+
+<span class="n">dlc_count_pricing</span><span class="p">[</span><span class="s2">&quot;game_price_band&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dlc_count_pricing</span><span class="p">[</span><span class="s2">&quot;game_price&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">price_band</span><span class="p">)</span>
+<span class="n">dlc_count_pricing</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 8918 entries, 0 to 8917
+Data columns (total 5 columns):
+ #   Column           Non-Null Count  Dtype  
+---  ------           --------------  -----  
+ 0   game_id          8918 non-null   int64  
+ 1   game_price       8918 non-null   float64
+ 2   dlc_count        8918 non-null   int64  
+ 3   avg_dlc_price    8918 non-null   float64
+ 4   game_price_band  8918 non-null   object 
+dtypes: float64(2), int64(2), object(1)
+memory usage: 348.5+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">dlc_count_pricing</span><span class="p">[</span><span class="n">dlc_count_pricing</span><span class="p">[</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">]</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">bands</span><span class="p">)</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;magma&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">band_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;game_price_band&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">bands</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">band_df</span><span class="p">,</span>
+        <span class="n">x</span><span class="o">=</span><span class="s2">&quot;dlc_count&quot;</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="s2">&quot;avg_dlc_price&quot;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+        <span class="n">scatter</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="n">bands</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Average DLC Price&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;DLC Count&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Linear fits for Average DLC Price per Number of DLCs, Grouped by Base Game Price&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Base Game Price&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9c63b5fbf0e94c48130421398353c44f2bf009060432d61d95dcd22b11e7ef1b.png" src="_images/9c63b5fbf0e94c48130421398353c44f2bf009060432d61d95dcd22b11e7ef1b.png" />
+</div>
+</div>
+</section>
+<section id="dlc-release-time-distributions">
+<h2>DLC Release Time Distributions<a class="headerlink" href="#dlc-release-time-distributions" title="Permalink to this heading">#</a></h2>
+<p>Let us graph the distribution of DLC’s release date in days after the base game’s release.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> game_dlc_releases_result &lt;&lt;
+SELECT game_app_id            AS game_id,
+       game_apps.release_date AS game_release,
+       game_apps.price        AS game_price,
+       dlc_app_id             AS dlc_id,
+       dlc_apps.release_date  AS dlc_release,
+       dlc_apps.price         AS dlc_price
+FROM game_dlcs
+         LEFT JOIN apps AS game_apps ON game_apps.id = game_dlcs.game_app_id
+         LEFT JOIN apps AS dlc_apps ON dlc_apps.id = game_dlcs.dlc_app_id
+WHERE game_apps.release_date &lt;= dlc_apps.release_date;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="None">Running query in &#x27;postgresql+psycopg://postgres:***@172.18.144.1:5432/steam-insights&#x27;</span></div><div class="output text_html"><span style="color: green">35128 rows affected.</span></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">game_dlc_releases_df</span> <span class="o">=</span> <span class="n">game_dlc_releases_result</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">game_dlc_releases_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>game_id</th>
+      <th>game_release</th>
+      <th>game_price</th>
+      <th>dlc_id</th>
+      <th>dlc_release</th>
+      <th>dlc_price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>262490</td>
+      <td>2014-03-07</td>
+      <td>4899</td>
+      <td>283551</td>
+      <td>2014-03-14</td>
+      <td>2450</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1407200</td>
+      <td>2021-04-28</td>
+      <td>0</td>
+      <td>1811790</td>
+      <td>2021-11-19</td>
+      <td>2499</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>24010</td>
+      <td>2015-09-17</td>
+      <td>2499</td>
+      <td>325970</td>
+      <td>2015-10-07</td>
+      <td>1999</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>236850</td>
+      <td>2013-08-13</td>
+      <td>3999</td>
+      <td>2223660</td>
+      <td>2023-04-18</td>
+      <td>1999</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>489630</td>
+      <td>2018-07-12</td>
+      <td>4086</td>
+      <td>1788210</td>
+      <td>2021-11-22</td>
+      <td>1666</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">game_dlc_releases_df</span><span class="p">[</span><span class="s2">&quot;release_offset&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">game_dlc_releases_df</span><span class="p">[</span><span class="s2">&quot;dlc_release&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">game_dlc_releases_df</span><span class="p">[</span><span class="s2">&quot;game_release&quot;</span><span class="p">]</span>
+<span class="n">game_dlc_releases_df</span><span class="p">[</span><span class="s2">&quot;release_offset&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">game_dlc_releases_df</span><span class="p">[</span><span class="s2">&quot;release_offset&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">days</span><span class="p">)</span>
+<span class="n">game_dlc_releases_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>game_id</th>
+      <th>game_release</th>
+      <th>game_price</th>
+      <th>dlc_id</th>
+      <th>dlc_release</th>
+      <th>dlc_price</th>
+      <th>release_offset</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>262490</td>
+      <td>2014-03-07</td>
+      <td>4899</td>
+      <td>283551</td>
+      <td>2014-03-14</td>
+      <td>2450</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1407200</td>
+      <td>2021-04-28</td>
+      <td>0</td>
+      <td>1811790</td>
+      <td>2021-11-19</td>
+      <td>2499</td>
+      <td>205</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>24010</td>
+      <td>2015-09-17</td>
+      <td>2499</td>
+      <td>325970</td>
+      <td>2015-10-07</td>
+      <td>1999</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>236850</td>
+      <td>2013-08-13</td>
+      <td>3999</td>
+      <td>2223660</td>
+      <td>2023-04-18</td>
+      <td>1999</td>
+      <td>3535</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>489630</td>
+      <td>2018-07-12</td>
+      <td>4086</td>
+      <td>1788210</td>
+      <td>2021-11-22</td>
+      <td>1666</td>
+      <td>1229</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_sorted</span> <span class="o">=</span> <span class="n">game_dlc_releases_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;game_id&quot;</span><span class="p">,</span> <span class="s2">&quot;release_offset&quot;</span><span class="p">])</span>
+<span class="n">df_sorted</span><span class="p">[</span><span class="s2">&quot;dlc_num&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_sorted</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;game_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cumcount</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">df_sorted</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 35128 entries, 5782 to 29935
+Data columns (total 8 columns):
+ #   Column          Non-Null Count  Dtype 
+---  ------          --------------  ----- 
+ 0   game_id         35128 non-null  int64 
+ 1   game_release    35128 non-null  object
+ 2   game_price      35128 non-null  int64 
+ 3   dlc_id          35128 non-null  int64 
+ 4   dlc_release     35128 non-null  object
+ 5   dlc_price       35128 non-null  int64 
+ 6   release_offset  35128 non-null  int64 
+ 7   dlc_num         35128 non-null  int64 
+dtypes: int64(6), object(2)
+memory usage: 2.4+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df_sorted[&quot;dlc_group&quot;] = df_sorted[&quot;dlc_num&quot;].transform(lambda n: str(n) if n &lt; 6 else &quot;6+&quot;)</span>
+<span class="n">df_sorted</span> <span class="o">=</span> <span class="n">df_sorted</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_sorted</span><span class="p">[</span><span class="s2">&quot;dlc_num&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">]</span> <span class="c1"># only include &lt;=5 DLCs per game</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_sorted</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;release_offset&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;dlc_num&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;blend:#7AB,#EDA&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">365</span> <span class="o">*</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Days Since Game Release&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;DLC Number&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/590c5da68f0e7ff44fa473c2710655a519d7678928871aa80649cadbf3460012.png" src="_images/590c5da68f0e7ff44fa473c2710655a519d7678928871aa80649cadbf3460012.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Overview</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-count-analysis">Release Count Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tag-analysis-of-games-with-100-dlcs">Tag Analysis of Games with 100+ DLCs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#average-dlc-price-distribution">Average DLC Price Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dlc-release-time-distributions">DLC Release Time Distributions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
