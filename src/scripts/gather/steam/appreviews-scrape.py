@@ -55,11 +55,15 @@ class Scraper():
         """
 
         soup = BeautifulSoup(self.response.text, "html.parser")
-        user_reviews_div = soup.find("div", id="userReviews")
-        if not isinstance(user_reviews_div, Tag):
-            raise HTMLError(str(type(user_reviews_div)))
+        glance_div = soup.find("div", class_="glance_ctn_responsive_left")
+        if not isinstance(glance_div, Tag):
+            raise HTMLError(f"Glance Div type: {type(glance_div)}")
 
-        def parse_tooltip(div_attr: str) -> tuple[int, int]:
+        user_reviews_div = glance_div.find("div", id="userReviews")
+        if not isinstance(user_reviews_div, Tag):
+            raise HTMLError(f"Reviews Div type: {type(user_reviews_div)}")
+
+        def parse_tooltip(div_attr: str) -> tuple[int, int] | None:
             """
             Parse the `data-tooltip-html` attribute into review count and positive percentage:
             '85% of the 865 user reviews in the last 30 days are positive.' => (85, 865)
@@ -67,6 +71,9 @@ class Scraper():
             """
             if div_attr == "No user reviews":
                 return (0, 0)
+
+            if div_attr == "Need more user reviews to generate a score":
+                return None
 
             try:
                 perc_symbol_idx = div_attr.find("%")
@@ -77,14 +84,25 @@ class Scraper():
             except Exception:
                 raise HTMLError
 
+        def parse_reviews_div(div: Tag) -> tuple[int | None, int]:
+            parsed_tooltip = parse_tooltip(div.attrs["data-tooltip-html"])
+            if parsed_tooltip is not None:
+                return parsed_tooltip
+
+            # few user reviews; score hasn't been generated; tooltip doesnt contain review data
+            span = div.find("span", class_="not_enough_reviews")
+            if not isinstance(user_reviews_div, Tag):
+                raise HTMLError(f"Reviews Span type: {type(span)}")
+
+            reviews = int(span.text.split(" ")[0])
+            return (None, reviews)
+
         divs = user_reviews_div.find_all("div", class_="user_reviews_summary_row")
 
         try:
             match len(divs):
-                case 0:
-                    self.data = ((0, 0), (0, 0))
                 case 1:
-                    self.data = ((0, 0), parse_tooltip(divs[0].attrs["data-tooltip-html"]))
+                    self.data = ((0, 0), parse_reviews_div(divs[0]))
                 case 2:
                     [reviews_recent, reviews_total] = [parse_tooltip(
                         div.attrs["data-tooltip-html"]) for div in divs[:2]]
