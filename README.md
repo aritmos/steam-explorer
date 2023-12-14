@@ -1,6 +1,6 @@
 # 🎮 steam-explorer
 
-This repository houses my exploration into the vast available data in the [Steam](https://store.steampowered.com) gaming platform. The project includes a rich array of game-related metricsr, ranging from historical pricing and playercounts to genre classifications and hardware requirements. This project aims to unravel patterns, uncover insights, and highlight noteworthy trends within the gaming landscape. 
+This repository houses my exploration into the vast available data in the [Steam](https://store.steampowered.com) gaming platform. The project includes a rich array of game-related metrics, ranging from historical pricing and playercounts to genre classifications and hardware requirements. This project aims to unravel patterns, uncover insights, and highlight noteworthy trends within the gaming landscape. 
 
 ## 🏗️ Project Structure
 
