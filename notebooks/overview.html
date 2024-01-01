@@ -1,0 +1,1059 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Overview &#8212; Steam Explorer</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/onload.js"></script>
+    <script src="../_static/card-fontsize.js"></script>
+    <script src="../_static/card-bars.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/overview';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Releases" href="general.html" />
+    <link rel="prev" title="Steam Explorer" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Steam Explorer - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Steam Explorer - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Steam Explorer
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Results</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dlc.html">DLCs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playercount.html">Playercounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pricehistory.html">Price History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">Developers &amp; Publishers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="data.html">Backend</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/aritmos/steam-explorer/src/book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/aritmos/steam-explorer/src/book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/overview.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/overview.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Overview</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-metrics">Global Metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#releases">Releases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#game-genres">Game Genres</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-support">Platform Support</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dlcs-and-demos">DLCs and Demos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publishers-and-developers">Publishers and Developers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#genres-categories-and-tags">Genres, Categories and Tags</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#playercounts">Playercounts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pricing">Pricing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-requirements">Hardware Requirements</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h1>
+<p>The following are general global results of the steam-explorer project, capturing the global gaming landscape based on the <strong> <span class="pasted-text">4,482,631</span> </strong> cumulative datapoints gathered in November 2023. For more in-depth analysis, view any of the following chapters.</p>
+<section id="global-metrics">
+<h2>Global Metrics<a class="headerlink" href="#global-metrics" title="Permalink to this heading">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-3 sd-row-cols-xs-3 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="pasted-text">163,880</span></div>
+<p class="sd-card-text">products are listed on the steam store</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Title 2</div>
+<p class="sd-card-text">B</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Title 3</div>
+<p class="sd-card-text">C</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-3 sd-row-cols-xs-3 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Title 4</div>
+<p class="sd-card-text">D</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Title 5</div>
+<p class="sd-card-text">E</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Title 6</div>
+<p class="sd-card-text">F</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="releases">
+<h2>Releases<a class="headerlink" href="#releases" title="Permalink to this heading">#</a></h2>
+<p>Steam has been a globally successful gaming platform; currently housing over 100,000 games. Since its mainstream debut, developers have kept increasing the number of yearly releases—a testament to the growth of the gaming landscape as a whole. 2023 saw <strong> <span class="output text_plain">23,310</span> </strong> game releases, which equates to <span class="pasted-text">67</span> game releases per day.</p>
+<figure class="margin align-default" id="id1">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_11124">
+  <thead>
+    <tr>
+      <th id="T_11124_level0_col0" class="col_heading level0 col0" >Year</th>
+      <th id="T_11124_level0_col1" class="col_heading level0 col1" >Release Count</th>
+      <th id="T_11124_level0_col2" class="col_heading level0 col2" >YoY % Diff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_11124_row0_col0" class="data row0 col0" >1997</td>
+      <td id="T_11124_row0_col1" class="data row0 col1" >2</td>
+      <td id="T_11124_row0_col2" class="data row0 col2" >nan</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row1_col0" class="data row1 col0" >1998</td>
+      <td id="T_11124_row1_col1" class="data row1 col1" >1</td>
+      <td id="T_11124_row1_col2" class="data row1 col2" >-50.0</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row2_col0" class="data row2 col0" >1999</td>
+      <td id="T_11124_row2_col1" class="data row2 col1" >2</td>
+      <td id="T_11124_row2_col2" class="data row2 col2" >100.0</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row3_col0" class="data row3 col0" >2000</td>
+      <td id="T_11124_row3_col1" class="data row3 col1" >2</td>
+      <td id="T_11124_row3_col2" class="data row3 col2" >0.0</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row4_col0" class="data row4 col0" >2001</td>
+      <td id="T_11124_row4_col1" class="data row4 col1" >4</td>
+      <td id="T_11124_row4_col2" class="data row4 col2" >100.0</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row5_col0" class="data row5 col0" >2002</td>
+      <td id="T_11124_row5_col1" class="data row5 col1" >1</td>
+      <td id="T_11124_row5_col2" class="data row5 col2" >-75.0</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row6_col0" class="data row6 col0" >2003</td>
+      <td id="T_11124_row6_col1" class="data row6 col1" >3</td>
+      <td id="T_11124_row6_col2" class="data row6 col2" >200.0</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row7_col0" class="data row7 col0" >2004</td>
+      <td id="T_11124_row7_col1" class="data row7 col1" >6</td>
+      <td id="T_11124_row7_col2" class="data row7 col2" >100.0</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row8_col0" class="data row8 col0" >2005</td>
+      <td id="T_11124_row8_col1" class="data row8 col1" >8</td>
+      <td id="T_11124_row8_col2" class="data row8 col2" >33.3</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row9_col0" class="data row9 col0" >2006</td>
+      <td id="T_11124_row9_col1" class="data row9 col1" >70</td>
+      <td id="T_11124_row9_col2" class="data row9 col2" >775.0</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row10_col0" class="data row10 col0" >2007</td>
+      <td id="T_11124_row10_col1" class="data row10 col1" >119</td>
+      <td id="T_11124_row10_col2" class="data row10 col2" >70.0</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row11_col0" class="data row11 col0" >2008</td>
+      <td id="T_11124_row11_col1" class="data row11 col1" >204</td>
+      <td id="T_11124_row11_col2" class="data row11 col2" >71.4</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row12_col0" class="data row12 col0" >2009</td>
+      <td id="T_11124_row12_col1" class="data row12 col1" >443</td>
+      <td id="T_11124_row12_col2" class="data row12 col2" >117.2</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row13_col0" class="data row13 col0" >2010</td>
+      <td id="T_11124_row13_col1" class="data row13 col1" >413</td>
+      <td id="T_11124_row13_col2" class="data row13 col2" >-6.8</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row14_col0" class="data row14 col0" >2011</td>
+      <td id="T_11124_row14_col1" class="data row14 col1" >537</td>
+      <td id="T_11124_row14_col2" class="data row14 col2" >30.0</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row15_col0" class="data row15 col0" >2012</td>
+      <td id="T_11124_row15_col1" class="data row15 col1" >839</td>
+      <td id="T_11124_row15_col2" class="data row15 col2" >56.2</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row16_col0" class="data row16 col0" >2013</td>
+      <td id="T_11124_row16_col1" class="data row16 col1" >1153</td>
+      <td id="T_11124_row16_col2" class="data row16 col2" >37.4</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row17_col0" class="data row17 col0" >2014</td>
+      <td id="T_11124_row17_col1" class="data row17 col1" >2926</td>
+      <td id="T_11124_row17_col2" class="data row17 col2" >153.8</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row18_col0" class="data row18 col0" >2015</td>
+      <td id="T_11124_row18_col1" class="data row18 col1" >4587</td>
+      <td id="T_11124_row18_col2" class="data row18 col2" >56.8</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row19_col0" class="data row19 col0" >2016</td>
+      <td id="T_11124_row19_col1" class="data row19 col1" >7360</td>
+      <td id="T_11124_row19_col2" class="data row19 col2" >60.5</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row20_col0" class="data row20 col0" >2017</td>
+      <td id="T_11124_row20_col1" class="data row20 col1" >10138</td>
+      <td id="T_11124_row20_col2" class="data row20 col2" >37.7</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row21_col0" class="data row21 col0" >2018</td>
+      <td id="T_11124_row21_col1" class="data row21 col1" >12582</td>
+      <td id="T_11124_row21_col2" class="data row21 col2" >24.1</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row22_col0" class="data row22 col0" >2019</td>
+      <td id="T_11124_row22_col1" class="data row22 col1" >12698</td>
+      <td id="T_11124_row22_col2" class="data row22 col2" >0.9</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row23_col0" class="data row23 col0" >2020</td>
+      <td id="T_11124_row23_col1" class="data row23 col1" >15228</td>
+      <td id="T_11124_row23_col2" class="data row23 col2" >19.9</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row24_col0" class="data row24 col0" >2021</td>
+      <td id="T_11124_row24_col1" class="data row24 col1" >19883</td>
+      <td id="T_11124_row24_col2" class="data row24 col2" >30.6</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row25_col0" class="data row25 col0" >2022</td>
+      <td id="T_11124_row25_col1" class="data row25 col1" >21404</td>
+      <td id="T_11124_row25_col2" class="data row25 col2" >7.6</td>
+    </tr>
+    <tr>
+      <td id="T_11124_row26_col0" class="data row26 col0" >2023</td>
+      <td id="T_11124_row26_col1" class="data row26 col1" >23310</td>
+      <td id="T_11124_row26_col2" class="data row26 col2" >8.9</td>
+    </tr>
+  </tbody>
+</table>
+</div><figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Datapoints for <a class="reference internal" href="#fig-yearly-releases"><span class="std std-numref">Fig. 2</span></a> and <a class="reference internal" href="#fig-yoy-release-diff"><span class="std std-numref">Fig. 3</span></a>.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Release Counts</label><div class="sd-tab-content docutils">
+<figure class="align-default" id="fig-yearly-releases" style="width: 65%">
+<img alt="../_images/7f394ac165059d8894c84d6b677a0b5b58a039f159fca547a221d00811395fe2.png" src="../_images/7f394ac165059d8894c84d6b677a0b5b58a039f159fca547a221d00811395fe2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Yearly game release counts</span><a class="headerlink" href="#fig-yearly-releases" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Year-on-Year Differences</label><div class="sd-tab-content docutils">
+<figure class="align-default" id="fig-yoy-release-diff" style="width: 65%">
+<img alt="../_images/c76fc5ac3e984362c0a53ca7a990bd9d572ee3f0d7767cc6f46e7334b2a5ed96.png" src="../_images/c76fc5ac3e984362c0a53ca7a990bd9d572ee3f0d7767cc6f46e7334b2a5ed96.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Year-on-year release count percentage differences</span><a class="headerlink" href="#fig-yoy-release-diff" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<p><strong>Early Beginnings</strong><br />
+Steam’s debut on September 12, 2003 saw relatively slow adoption from the developer side. Besides hosting Valve’s previously released titles, such as <em>Counter Strike: Source</em> and <em>Half-Life</em>, in its first two years, the platform only saw 14 from other developers. However 2006 saw the platform’s first step into the spotlight, with 64 external titles including those from the <em>Call of Duty</em>, <em>Sid Meir’s Civ</em>, and <em>Total War</em> franchises. The platform would then see ever-increasing adoption from developers until its explosion in 2014, possibly caused by a rapid increase in the playerbase following <em>Counter Strike: Global Offensive</em>’s “Arms Deal” update.</p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p><strong>An Unperturbed Giant</strong><br />
+Steam’s release count has generally seen a year-over-year increase. However 2019’s data is a clear outlier amongst this growth. The end of 2018 saw the release of Epic Games’ competing “Store”. The meteoric rise of <em>Fortnite</em>, along with exclusivity deals on the Epic Games’ store such as <em>Borderlands 3</em> resulted in 108 million customers on the competing platform. On the developer side, Epic Games presented a more generous <strong>88%/12%</strong> revenue split compared to Valve’s <strong>70%/30%</strong>, however exlusivity for the first 6 months in their platform netted developers publishing on Epic Games Store <strong>100%</strong> of the revenue.
+<br />
+<strong>TODO</strong>: 2020-2022 analysis</p>
+</div>
+</div>
+</div>
+<section id="game-genres">
+<h3>Game Genres<a class="headerlink" href="#game-genres" title="Permalink to this heading">#</a></h3>
+<div class="full-width docutils">
+<figure class="align-default" id="fig-genre-rank" style="width: 90%">
+<img alt="../_images/d799ed6fefe07e8f125960c514e2f4928b2f2d208afd0201a7382201d37743bd.png" src="../_images/d799ed6fefe07e8f125960c514e2f4928b2f2d208afd0201a7382201d37743bd.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Top 8 most popular game genres by releases per year</span><a class="headerlink" href="#fig-genre-rank" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<figure class="margin align-default" id="fig-old-top-tags">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_4987e">
+  <thead>
+    <tr>
+      <th id="T_4987e_level0_col0" class="col_heading level0 col0" >Year</th>
+      <th id="T_4987e_level0_col1" class="col_heading level0 col1" >Genre</th>
+      <th id="T_4987e_level0_col2" class="col_heading level0 col2" >Rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_4987e_row0_col0" class="data row0 col0" >2003</td>
+      <td id="T_4987e_row0_col1" class="data row0 col1" >Strategy</td>
+      <td id="T_4987e_row0_col2" class="data row0 col2" >1</td>
+    </tr>
+    <tr>
+      <td id="T_4987e_row1_col0" class="data row1 col0" >2003</td>
+      <td id="T_4987e_row1_col1" class="data row1 col1" >Shooter</td>
+      <td id="T_4987e_row1_col2" class="data row1 col2" >2</td>
+    </tr>
+    <tr>
+      <td id="T_4987e_row2_col0" class="data row2 col0" >2004</td>
+      <td id="T_4987e_row2_col1" class="data row2 col1" >FPS</td>
+      <td id="T_4987e_row2_col2" class="data row2 col2" >1</td>
+    </tr>
+    <tr>
+      <td id="T_4987e_row3_col0" class="data row3 col0" >2004</td>
+      <td id="T_4987e_row3_col1" class="data row3 col1" >Shooter</td>
+      <td id="T_4987e_row3_col2" class="data row3 col2" >3</td>
+    </tr>
+    <tr>
+      <td id="T_4987e_row4_col0" class="data row4 col0" >2005</td>
+      <td id="T_4987e_row4_col1" class="data row4 col1" >RPG</td>
+      <td id="T_4987e_row4_col2" class="data row4 col2" >2</td>
+    </tr>
+    <tr>
+      <td id="T_4987e_row5_col0" class="data row5 col0" >2006</td>
+      <td id="T_4987e_row5_col1" class="data row5 col1" >Strategy</td>
+      <td id="T_4987e_row5_col2" class="data row5 col2" >2</td>
+    </tr>
+    <tr>
+      <td id="T_4987e_row6_col0" class="data row6 col0" >2006</td>
+      <td id="T_4987e_row6_col1" class="data row6 col1" >Simulation</td>
+      <td id="T_4987e_row6_col2" class="data row6 col2" >3</td>
+    </tr>
+    <tr>
+      <td id="T_4987e_row7_col0" class="data row7 col0" >2007</td>
+      <td id="T_4987e_row7_col1" class="data row7 col1" >Shooter</td>
+      <td id="T_4987e_row7_col2" class="data row7 col2" >2</td>
+    </tr>
+  </tbody>
+</table>
+</div><figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Non Action/Adventure genres in the top 3 ranking between 2003 and 2007</span><a class="headerlink" href="#fig-old-top-tags" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="#fig-genre-rank"><span class="std std-numref">Fig. 4</span></a> showcases the rankings of gameplay-related genres (collected via tags) in the past 10 years.
+There is a strong stability in the two most popular tags, <em>Action</em> and <em>Adventure</em>, which within <a class="reference internal" href="#fig-genre-counts"><span class="std std-numref">Fig. 6</span></a> one can see stems from a large gap in counts between the top two and the remaining tags. The top two tags are not surprising, both largely being “meta-genres” for which games could easily also contain other genres shown in the figures. <em>Adventure’s</em> top spot is indicative of the similarities between videogames and other common forms of narrative content in the entertainment industry such as literature and film. Looking further in the past shows that this wasn’t always the case.
+<a class="reference internal" href="#fig-old-top-tags"><span class="std std-numref">Fig. 5</span></a> showcases non <em>Action/Adventure</em> genres within the top 3 between 2003 and 2007. It is likely that the <em>Adventure</em> genre required improvements in consumer hardware as well as further technological advancements in software development before it could cement its place, as seen by the appearance of other genres within the top spots within this timeline.</p>
+<hr class="docutils" />
+<br />
+<div class="full-width docutils">
+<figure class="align-default" id="fig-genre-counts" style="width: 90%">
+<img alt="../_images/dc0df7fcad3dd8d86662d85d7f06ecffcdadc6ce8d8998d186856cbe395722dc.png" src="../_images/dc0df7fcad3dd8d86662d85d7f06ecffcdadc6ce8d8998d186856cbe395722dc.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Top 8 most popular game genres by releases per year</span><a class="headerlink" href="#fig-genre-counts" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<!-- ````{margin}
+```{note}
+In {numref}`fig-genre-rank` and {numref}`fig-genre-counts`, data from 2003-2007 has been omitted due to the large volatility of the small sample size
+```{note}
+```` -->
+<p><strong>Virtual Atrophy</strong><br /></p>
+<figure class="margin align-right" id="fig-genre-2016-2017-ratings">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_7b877">
+  <thead>
+    <tr>
+      <th id="T_7b877_level0_col0" class="col_heading level0 col0" >Genre</th>
+      <th id="T_7b877_level0_col1" class="col_heading level0 col1" >Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_7b877_row0_col0" class="data row0 col0" >Simulation</td>
+      <td id="T_7b877_row0_col1" class="data row0 col1" >0.65</td>
+    </tr>
+    <tr>
+      <td id="T_7b877_row1_col0" class="data row1 col0" >VR</td>
+      <td id="T_7b877_row1_col1" class="data row1 col1" >0.65</td>
+    </tr>
+    <tr>
+      <td id="T_7b877_row2_col0" class="data row2 col0" >Strategy</td>
+      <td id="T_7b877_row2_col1" class="data row2 col1" >0.67</td>
+    </tr>
+    <tr>
+      <td id="T_7b877_row3_col0" class="data row3 col0" >RPG</td>
+      <td id="T_7b877_row3_col1" class="data row3 col1" >0.68</td>
+    </tr>
+    <tr>
+      <td id="T_7b877_row4_col0" class="data row4 col0" >Action</td>
+      <td id="T_7b877_row4_col1" class="data row4 col1" >0.69</td>
+    </tr>
+    <tr>
+      <td id="T_7b877_row5_col0" class="data row5 col0" >Adventure</td>
+      <td id="T_7b877_row5_col1" class="data row5 col1" >0.7</td>
+    </tr>
+    <tr>
+      <td id="T_7b877_row6_col0" class="data row6 col0" >Fantasy</td>
+      <td id="T_7b877_row6_col1" class="data row6 col1" >0.75</td>
+    </tr>
+    <tr>
+      <td id="T_7b877_row7_col0" class="data row7 col0" >Puzzle</td>
+      <td id="T_7b877_row7_col1" class="data row7 col1" >0.77</td>
+    </tr>
+    <tr>
+      <td id="T_7b877_row8_col0" class="data row8 col0" >Anime</td>
+      <td id="T_7b877_row8_col1" class="data row8 col1" >0.78</td>
+    </tr>
+  </tbody>
+</table>
+</div><figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Average release ratings by genre within releases in 2016-2017</span><a class="headerlink" href="#fig-genre-2016-2017-ratings" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>An immediate standout in <a class="reference internal" href="#fig-genre-counts"><span class="std std-numref">Fig. 6</span></a> is the <em>VR</em> genre, which unlike all other tags, has had a visible decline in releases since its peak popularity in 2017. The modern <em>VR</em> genre came about with the release of the Oculus Rift in April 2012, which the data suggests had a slow adoption, likely due to its high entry cost for the average consumer. <em>VR</em> games greatly incresed in popularity in 2016 alongside the release of the <em>HTC Vive</em> (which was partly developed by Valve). One can speculate that the general appeal of the new technology along with the heavy marketing would result in the influx of releases in 2016-2017, but a lack of long term retention due to poor reception resulted in the decline of the genre. We can see in <a class="reference internal" href="#fig-genre-2016-2017-ratings"><span class="std std-numref">Fig. 7</span></a> that amongst other top ranking genres, <em>VR</em> had one of the lowest average ratings.</p>
+</section>
+<section id="platform-support">
+<h3>Platform Support<a class="headerlink" href="#platform-support" title="Permalink to this heading">#</a></h3>
+<p>The Windows operating system is the de facto standard within the gaming community, with MacOS and Linux support being far from mainstream adoption.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-3 sd-row-cols-xs-3 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">(header bar)</p>
+</div>
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="output text_plain">99.96%</span></div>
+<p class="sd-card-text">of games support Windows</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">(header bar)</p>
+</div>
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="output text_plain">19.1%</span></div>
+<p class="sd-card-text">of games support MacOS</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">(header bar)</p>
+</div>
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="output text_plain">13.4%</span></div>
+<p class="sd-card-text">of games support Linux</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<figure class="align-default" id="fig-platform-support">
+<img alt="../_images/f8e666f71cc4e996e074655210bd8eb29be284c387dd71afad62730f27ffbcc2.png" src="../_images/f8e666f71cc4e996e074655210bd8eb29be284c387dd71afad62730f27ffbcc2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Platform support as a percentage of yearly releases</span><a class="headerlink" href="#fig-platform-support" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<div class="sd-col sd-d-flex-column sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<p>Platform support for MacOS and Linux has been on the decline since</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="dlcs-and-demos">
+<h2>DLCs and Demos<a class="headerlink" href="#dlcs-and-demos" title="Permalink to this heading">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-4 sd-g-xs-4 sd-g-sm-4 sd-g-md-4 sd-g-lg-4 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">(header bar)</p>
+</div>
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="output text_plain">9.0%</span></div>
+<p class="sd-card-text">of games contain DLCs.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-column sd-col-8 sd-col-xs-8 sd-col-sm-8 sd-col-md-8 sd-col-lg-8 docutils">
+<p>Here is some accompanying text</p>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Number of DLCs, Game-DLC percentage</p></li>
+<li><p>Highest number of DLC</p></li>
+</ul>
+</section>
+<section id="publishers-and-developers">
+<h2>Publishers and Developers<a class="headerlink" href="#publishers-and-developers" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Average number of games per developer</p></li>
+<li><p>Most popular developer / publishers</p></li>
+</ul>
+</section>
+<section id="genres-categories-and-tags">
+<h2>Genres, Categories and Tags<a class="headerlink" href="#genres-categories-and-tags" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>VR Support, Cloud etc ()</p></li>
+<li><p>new tags/genres (2023+, 2020+, 2017+, 2014+)</p></li>
+</ul>
+</section>
+<section id="playercounts">
+<h2>Playercounts<a class="headerlink" href="#playercounts" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Most popular games</p></li>
+<li><p>pandemic / seasonal changes</p></li>
+</ul>
+</section>
+<section id="pricing">
+<h2>Pricing<a class="headerlink" href="#pricing" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>price increase or decrease? (YoY, kind)</p></li>
+<li><p>average pricing by tags/genres (lowest and priciest tags)</p></li>
+</ul>
+</section>
+<section id="hardware-requirements">
+<h2>Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>average computer cost for a genre</p></li>
+<li><p>steam survey comparison</p></li>
+</ul>
+<p class="big">Hello</p></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Steam Explorer</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="general.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Releases</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-metrics">Global Metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#releases">Releases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#game-genres">Game Genres</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-support">Platform Support</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dlcs-and-demos">DLCs and Demos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publishers-and-developers">Publishers and Developers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#genres-categories-and-tags">Genres, Categories and Tags</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#playercounts">Playercounts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pricing">Pricing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-requirements">Hardware Requirements</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sebastian (aritmos)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

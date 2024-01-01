@@ -1,0 +1,55 @@
+Traceback (most recent call last):
+  File "/home/aritmos/dev/github/steam-insights/.venv/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/aritmos/dev/github/steam-insights/.venv/lib/python3.12/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aritmos/dev/github/steam-insights/.venv/lib/python3.12/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aritmos/dev/github/steam-insights/.venv/lib/python3.12/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/asyncio/base_events.py", line 664, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/aritmos/dev/github/steam-insights/.venv/lib/python3.12/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/home/aritmos/dev/github/steam-insights/.venv/lib/python3.12/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/aritmos/dev/github/steam-insights/.venv/lib/python3.12/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+sns.set_theme(style="ticks")
+fig, ax = plt.subplots(figsize=(20, 6))
+
+sns.boxplot(
+    has_dlc_counts_extrema, x="dlc_count", whis=[0, 100], width=.6, log_scale=True, color=tiffany_blue
+)
+sns.stripplot(has_dlc_counts_extrema, x="dlc_count", size=4, color=".3", log_scale=True)
+
+ax.xaxis.grid(True)
+ticks = [30, 50, 100, 500, 1000, 2000, 3000]
+ax.set_xticks(ticks)
+ax.set_xticklabels(ticks)
+ax.set(ylabel="", xlabel="DLC Count")
+sns.despine(trim=True, left=True)
+
+%glue %glue dlc_extrema_plot = fig
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[14], line 5[0m
+[1;32m      1[0m sns[38;5;241m.[39mset_theme(style[38;5;241m=[39m[38;5;124m"[39m[38;5;124mticks[39m[38;5;124m"[39m)
+[1;32m      2[0m fig, ax [38;5;241m=[39m plt[38;5;241m.[39msubplots(figsize[38;5;241m=[39m([38;5;241m20[39m, [38;5;241m6[39m))
+[1;32m      4[0m sns[38;5;241m.[39mboxplot(
+[0;32m----> 5[0m     has_dlc_counts_extrema, x[38;5;241m=[39m[38;5;124m"[39m[38;5;124mdlc_count[39m[38;5;124m"[39m, whis[38;5;241m=[39m[[38;5;241m0[39m, [38;5;241m100[39m], width[38;5;241m=[39m[38;5;241m.6[39m, log_scale[38;5;241m=[39m[38;5;28;01mTrue[39;00m, color[38;5;241m=[39m[43mtiffany_blue[49m
+[1;32m      6[0m )
+[1;32m      7[0m sns[38;5;241m.[39mstripplot(has_dlc_counts_extrema, x[38;5;241m=[39m[38;5;124m"[39m[38;5;124mdlc_count[39m[38;5;124m"[39m, size[38;5;241m=[39m[38;5;241m4[39m, color[38;5;241m=[39m[38;5;124m"[39m[38;5;124m.3[39m[38;5;124m"[39m, log_scale[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[1;32m      9[0m ax[38;5;241m.[39mxaxis[38;5;241m.[39mgrid([38;5;28;01mTrue[39;00m)
+
+[0;31mNameError[0m: name 'tiffany_blue' is not defined
+NameError: name 'tiffany_blue' is not defined
+
