@@ -63,7 +63,8 @@ class Scraper:
         """
         match self.api:
             case StoreAPI.Info:
-                url = f"https://store.steampowered.com/api/appdetails?appids={self.appid}&l=english"
+                url = f"https://store.steampowered.com/api/appdetails?appids={
+                    self.appid}&l=english&cc=es"
             case StoreAPI.Reviews:
                 url = f"https://store.steampowered.com/appreviews/{self.appid}?json=1&language=all"
 
