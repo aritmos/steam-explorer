@@ -30,6 +30,8 @@ class Config:
         Artificial attribute getters for directory paths.
         Exposes `.data_dir`, ".logs_dir", ".state_dir", and `.db_uri`.
         """
+        if name == "root_dir":
+            return self.config["root_dir"]
 
         if name in ["data_dir", "logs_dir", "state_dir"]:
             # absolute/relative filepath logic
