@@ -3,6 +3,15 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: overview
-- file: dlc
+parts:
+  - caption: Results
+    chapters:
+    - file: notebooks/overview
+    - file: notebooks/general
+    - file: notebooks/dlc
+    - file: notebooks/playercount
+    - file: notebooks/pricehistory
+    - file: notebooks/developer
+  - caption: Data
+    chapters:
+    - file: notebooks/data
