@@ -66,7 +66,8 @@ class Scraper:
                 url = f"https://store.steampowered.com/api/appdetails?appids={
                     self.appid}&l=english&cc=es"
             case StoreAPI.Reviews:
-                url = f"https://store.steampowered.com/appreviews/{self.appid}?json=1&language=all"
+                url = f"https://store.steampowered.com/appreviews/{
+                    self.appid}?json=1&language=all&purchase_type=all"
 
         self.response = requests.get(url)
 
