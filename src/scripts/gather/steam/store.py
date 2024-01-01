@@ -98,6 +98,9 @@ class Scraper:
                 # The reviews API seems to always return a `success = true`,
                 # so sucess is instead measured by the number of total reviews being
                 # greater than zero.
+                # (After uploading the appinfo to the database,
+                # coalesce the appreviews data and then set any remaining entries to
+                # zero reviews)
                 success = self.json["query_summary"]["total_reviews"] > 0
 
         if not success:
@@ -189,12 +192,12 @@ class ScraperController:
             with open(self.STATE_FILEPATH, "r", encoding="UTF-8") as file:
                 self.start_appid = int(json.load(file)["greatest_processed_appid"])
         except FileNotFoundError:
-            with open(self.STATE_FILEPATH, "w", encoding="UTF-8") as file:
-                # smallest real appid is 5, so this ensures starting at the start
-                json.dump({"greatest_processed_appid": 1}, file)
+            with open(self.STATE_FILEPATH, "x", encoding="UTF-8") as file:
+                # smallest real appid is 5, so this ensures starting at the first appid
+                json.dump({"greatest_processed_appid": 1}, file, indent=4)
                 self.set_start_appid()
         except Exception as e:
-            print(f"ERROR [automatic start AppID lookup]: {e}")
+            print(f"ERROR [automatic start AppID lookup] {e.__class__.__name__}: {e}")
             quit()
 
     def load(self):
