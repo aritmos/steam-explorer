@@ -244,19 +244,27 @@ class ScraperController:
         # sentinel value (no application with appid=0 exists)
         last_successful_appid = 0
         for appid in tqdm(self.appids):
-            time.sleep(self.args.sleep)
             try:
-                Scraper(api, appid)
+                time.sleep(self.args.sleep)
+                try:
+                    Scraper(api, appid)
 
-                logging.info(f"{appid:07} OK")
-                last_successful_appid = appid
-            except ResponseFailure as e:
-                logging.warning(f"{appid:07} {e!r}")
-                continue
-            except Exception as e:
-                message = f"{appid:07} {e!r}"
-                print(message)
-                logging.critical(message)
+                    logging.info(f"{appid:07} OK")
+                    last_successful_appid = appid
+
+                except ResponseFailure as e:
+                    logging.warning(f"{appid:07} {e!r}")
+                    continue
+                except Exception as e:
+                    message = f"{appid:07} {e!r}"
+                    print(message)
+                    logging.critical(message)
+                    break
+
+            except KeyboardInterrupt:
+                # all appreviews requests are successes (despite our manual override)
+                if self.args.api == "reviews":
+                    last_successful_appid = appid
                 break
 
         # save the last successful appid to file
