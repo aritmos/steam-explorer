@@ -1,7 +1,0 @@
-jupyter
-pandas
-plotly
-psycopg[binary]
-sqlalchemy
-jupysql
-seaborn

@@ -1,5 +1,0 @@
-requests
-logging
-tqdm
-argparse
-beautifulsoup4
