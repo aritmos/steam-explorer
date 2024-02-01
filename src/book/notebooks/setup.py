@@ -43,72 +43,44 @@ def fmt(s: str | int | float) -> StrFmt:
         return StrFmt(f"{s:,}")
     raise Exception("unreachable")
 
-# wrappers for `myst_nb.glue` that only take variable names in the local scope and default to no display
+# --- Glueing ---
+# Wrappers for `myst_nb.glue` that only take variable names in the local scope
 
-# def glue_var(var_name: str, display: bool = False) -> None:
-#     value = globals()[var_name]
-#     glue_(var_name, value, display)
-
-# def glue_vars(*args, **kwargs) -> None:
-#     display = kwargs.get("display", False)
-#     for var_name in args:
-#         value = globals()[var_name]
-#         glue_(var_name, value, display)
-
-# glue magic command for ease of use
-from myst_nb import glue as glue_
+from myst_nb import glue as myst_glue
 from IPython.core.magic import register_line_magic
 import ast
 
+def glue_core(line: str, display: bool) -> None:
+    # execute the line (so the variable can be used later)
+    exec(line, get_ipython().user_ns)
+
+    # glue the assigned variables
+    line_ast = ast.parse(line, mode="exec")
+    target = line_ast.body[0].targets[0]
+    
+    if isinstance(target, ast.Name):
+        # single variable assignment
+        var_name = target.id
+        var_value = get_ipython().user_ns[var_name]
+        myst_glue(var_name, var_value, display)
+        
+    elif isinstance(target, ast.Tuple) or isinstance(target, ast.List):
+        # destructured variable assignment
+        var_names = [element.id for element in target.elts]
+        var_values = [get_ipython().user_ns[var_name] for var_name in var_names]
+
+        for var_name, var_value in zip(var_names, var_values):
+            myst_glue(var_name, var_value, display)
+
+# `glue` does not display the value
 @register_line_magic
 def glue(line: str) -> None:
-    # execute the line (so the variable can be used later)
-    exec(line, get_ipython().user_ns)
+   glue_core(line, False)
 
-    # glue the assigned variables
-    line_ast = ast.parse(line, mode="exec")
-    target = line_ast.body[0].targets[0]
-
-    
-    
-    if isinstance(target, ast.Name):
-        # single variable assignment
-        var_name = target.id
-        var_value = get_ipython().user_ns[var_name]
-        glue_(var_name, var_value, False)
-        
-    elif isinstance(target, ast.Tuple) or isinstance(target, ast.List):
-        # destructured variable assignment
-        var_names = [element.id for element in target.elts]
-        var_values = [get_ipython().user_ns[var_name] for var_name in var_names]
-
-        for var_name, var_value in zip(var_names, var_values):
-            glue_(var_name, var_value, False)
-
+# `glued` (glue-display) displays the value
 @register_line_magic
 def glued(line: str) -> None:
-    # execute the line (so the variable can be used later)
-    exec(line, get_ipython().user_ns)
-
-    # glue the assigned variables
-    line_ast = ast.parse(line, mode="exec")
-    target = line_ast.body[0].targets[0]
-
-    
-    
-    if isinstance(target, ast.Name):
-        # single variable assignment
-        var_name = target.id
-        var_value = get_ipython().user_ns[var_name]
-        glue_(var_name, var_value, True)
-        
-    elif isinstance(target, ast.Tuple) or isinstance(target, ast.List):
-        # destructured variable assignment
-        var_names = [element.id for element in target.elts]
-        var_values = [get_ipython().user_ns[var_name] for var_name in var_names]
-
-        for var_name, var_value in zip(var_names, var_values):
-            glue_(var_name, var_value, True)
+    glue_core(line, True)
 
 get_ipython().register_magic_function(glue, magic_kind='line')
 get_ipython().register_magic_function(glued, magic_kind='line')
