@@ -119,7 +119,7 @@ get_ipython().register_magic_function(glued, magic_kind='line')
 # font_path = '/usr/share/fonts/HelveticaNeue/HelveticaNeue.ttf'  # Replace with the actual path
 plt.rcParams['font.family'] = 'Helvetica Neue'
 
-blue = "#7AB"
+blue = "#064A75"
 palette_blue_yellow = "blend:#7AB,#EDA"
 
 from matplotlib.colors import LinearSegmentedColormap

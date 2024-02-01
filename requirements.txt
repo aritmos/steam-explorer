@@ -13,5 +13,6 @@ sqlalchemy==2.0.23
 jupysql==0.10.7
 seaborn==0.13.1
 
-# Compiling
+# Compiling and Publishing
 jupyter-book==0.15.1
+ghp-import==2.1.0
