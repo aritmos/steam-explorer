@@ -1,5 +1,5 @@
 window.addEventListener('resize', function() {
- let cardFontMultiplier = 3;
+ let cardFontMultiplier = 2.7;
 
  var cardBodyDivs = document.querySelectorAll('.sd-card-body');
  

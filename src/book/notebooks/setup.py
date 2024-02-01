@@ -28,7 +28,7 @@ engine = sqlalchemy.create_engine(config.db_uri)
 
 # --- MyST Markdown ---
 
-# custom class to eliminate quotes in glued string types 
+# wrapper class to eliminate quotes in glued string types 
 class StrFmt:
     def __init__(self, s: str):
         self.inner = s
